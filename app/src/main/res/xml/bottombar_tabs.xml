@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/Edificios"
+        title="Edificios"
+        barColorWhenSelected="@color/colorPrimary"
+        icon="@drawable/ic_edificios"
+        />
+
+    <tab
+        id="@+id/Laboratorios"
+        title="Laboratorios"
+        barColorWhenSelected="@color/colorPrimary"
+        icon="@drawable/ic_laboratorios"
+
+        />
+    <tab
+        id="@+id/Auditorios"
+        title="Auditorios"
+        barColorWhenSelected="@color/colorPrimary"
+        icon="@drawable/ic_auditorios"
+        />
+    <tab
+        id="@+id/Emfermerias"
+        title="Emfermerias"
+        barColorWhenSelected="@color/colorPrimary"
+        icon="@drawable/ic_clinica"
+        />
+
+
+
+</tabs>

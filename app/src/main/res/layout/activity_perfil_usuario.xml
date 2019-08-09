@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.jorge.utecgo.Activities.PerfilUsuario">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@drawable/usuarioedit"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="30dp"
+        android:elevation="10dp"
+
+        />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="238dp"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Usuario 2515642015"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:gravity="center_horizontal"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email: 2515642015@mail.utec.edu.sv"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:gravity="center_horizontal"
+
+            />
+
+        <TextView
+            android:layout_width="295dp"
+            android:layout_height="wrap_content"
+            android:text="Selecciona la opcion de recordame para guradar tus datos de inicio de session en la aplicacion"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="10dp"
+
+            />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="135dp"
+            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:text="Recordarme " />
+
+        <Button
+            android:id="@+id/btnComprobacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
