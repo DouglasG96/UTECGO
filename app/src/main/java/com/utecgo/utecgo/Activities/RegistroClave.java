@@ -162,7 +162,7 @@ public class RegistroClave extends AppCompatActivity {
         String rs="";
 
         try{
-            URL url=new URL("https://utecgo.000webhostapp.com/regUs.php");
+            URL url=new URL("https://utecgo.appwebsv.com/regUs.php");
             conex=(HttpURLConnection)url.openConnection();
             conex.setRequestMethod("POST");
             conex.setRequestProperty("Content-Length", "" + Integer.toString(parametros.getBytes().length));

@@ -22,7 +22,7 @@ public class Lugares {
         String rs="";
 
         try{
-            URL url=new URL("http://utecgo.000webhostapp.com/listaLugares.php");
+            URL url=new URL("http://utecgo.appwebsv.com/listaLugares.php");
             conex=(HttpURLConnection)url.openConnection();
             conex.setRequestMethod("POST");
             conex.setRequestProperty("Content-Length", "" + Integer.toString(parametros.getBytes().length));

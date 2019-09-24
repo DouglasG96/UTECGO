@@ -28,7 +28,7 @@ public  class Usuarios {
         String rs="";
 
         try{
-            URL url=new URL("https://utecgo.000webhostapp.com/validarUsuarios.php");
+            URL url=new URL("https://utecgo.appwebsv.com/validarUsuarios.php");
             conex=(HttpURLConnection)url.openConnection();
             conex.setRequestMethod("POST");
             conex.setRequestProperty("Content-Length", "" + Integer.toString(parametros.getBytes().length));
@@ -63,7 +63,7 @@ public  class Usuarios {
         String rs="";
 
         try{
-            URL url=new URL("https://utecgo.000webhostapp.com/validarCuenta.php");
+            URL url=new URL("https://utecgo.appwebsv.comvalidarCuenta.php");
             conex=(HttpURLConnection)url.openConnection();
             conex.setRequestMethod("POST");
             conex.setRequestProperty("Content-Length", "" + Integer.toString(parametros.getBytes().length));
