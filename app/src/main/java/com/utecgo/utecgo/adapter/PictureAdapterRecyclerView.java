@@ -1,4 +1,4 @@
-package com.jorge.utecgo.adapter;
+package com.utecgo.utecgo.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jorge.utecgo.Activities.PictureDetaills;
-import com.jorge.utecgo.R;
-import com.jorge.utecgo.model.Picture;
+import com.utecgo.utecgo.Activities.PictureDetaills;
+import com.utecgo.utecgo.R;
+import com.utecgo.utecgo.model.Picture;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

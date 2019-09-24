@@ -1,4 +1,4 @@
-package com.jorge.utecgo.model;
+package com.utecgo.utecgo.model;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

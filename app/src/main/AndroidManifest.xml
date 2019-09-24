@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jorge.utecgo">
+    package="com.utecgo.utecgo">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -44,7 +44,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyCoix1aNLV4NazzKwkWFAPsFyJUSeiN54c" />
 
         <activity
             android:name=".Activities.MapLocation"

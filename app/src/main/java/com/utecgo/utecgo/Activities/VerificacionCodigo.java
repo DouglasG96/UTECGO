@@ -1,4 +1,4 @@
-package com.jorge.utecgo.Activities;
+package com.utecgo.utecgo.Activities;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -9,9 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.jorge.utecgo.Activities.Pregunta;
-import com.jorge.utecgo.R;
-import com.jorge.utecgo.model.Usuarios;
+import com.utecgo.utecgo.Activities.Pregunta;
+import com.utecgo.utecgo.R;
+import com.utecgo.utecgo.model.Usuarios;
 
 public class VerificacionCodigo extends AppCompatActivity {
 

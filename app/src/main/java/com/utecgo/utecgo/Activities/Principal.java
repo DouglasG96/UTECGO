@@ -1,9 +1,9 @@
-package com.jorge.utecgo.Activities;
+package com.utecgo.utecgo.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.jorge.utecgo.R;
+import com.utecgo.utecgo.R;
 
 public class Principal extends AppCompatActivity {
 

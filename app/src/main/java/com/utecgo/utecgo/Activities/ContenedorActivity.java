@@ -1,4 +1,4 @@
-package com.jorge.utecgo.Activities;
+package com.utecgo.utecgo.Activities;
 
 import android.os.AsyncTask;
 import android.support.annotation.IdRes;
@@ -6,15 +6,15 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.jorge.utecgo.Activities.fragments.AuditoriosFragment;
-import com.jorge.utecgo.Activities.fragments.EdificiosFragment;
-import com.jorge.utecgo.Activities.fragments.EnfermeriasFragment;
-import com.jorge.utecgo.Activities.fragments.LaboratoriosFragment;
-import com.jorge.utecgo.R;
-import com.jorge.utecgo.model.Lugares;
-import com.jorge.utecgo.model.Picture;
+import com.utecgo.utecgo.Activities.fragments.AuditoriosFragment;
+import com.utecgo.utecgo.Activities.fragments.EdificiosFragment;
+import com.utecgo.utecgo.Activities.fragments.EnfermeriasFragment;
+import com.utecgo.utecgo.Activities.fragments.LaboratoriosFragment;
+import com.utecgo.utecgo.R;
+import com.utecgo.utecgo.model.Lugares;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
+import com.utecgo.utecgo.model.Picture;
 
 import java.util.ArrayList;
 

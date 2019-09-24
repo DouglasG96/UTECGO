@@ -1,4 +1,4 @@
-package com.jorge.utecgo.model;
+package com.utecgo.utecgo.model;
 
 import org.json.JSONArray;
 
@@ -63,7 +63,7 @@ public  class Usuarios {
         String rs="";
 
         try{
-            URL url=new URL("https://utecgo.appwebsv.comvalidarCuenta.php");
+            URL url=new URL("https://utecgo.appwebsv.com/validarCuenta.php");
             conex=(HttpURLConnection)url.openConnection();
             conex.setRequestMethod("POST");
             conex.setRequestProperty("Content-Length", "" + Integer.toString(parametros.getBytes().length));

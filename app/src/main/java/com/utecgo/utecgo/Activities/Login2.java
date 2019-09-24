@@ -1,4 +1,4 @@
-package com.jorge.utecgo.Activities;
+package com.utecgo.utecgo.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,9 +12,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jorge.utecgo.R;
-import com.jorge.utecgo.model.Net;
-import com.jorge.utecgo.model.Usuarios;
+import com.utecgo.utecgo.R;
+import com.utecgo.utecgo.model.Net;
+import com.utecgo.utecgo.model.Usuarios;
 
 public class Login2 extends AppCompatActivity {
 

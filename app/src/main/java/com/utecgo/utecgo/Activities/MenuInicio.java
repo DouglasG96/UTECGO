@@ -1,4 +1,4 @@
-package com.jorge.utecgo.Activities;
+package com.utecgo.utecgo.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.jorge.utecgo.R;
+import com.utecgo.utecgo.R;
 
 public class MenuInicio extends AppCompatActivity {
 

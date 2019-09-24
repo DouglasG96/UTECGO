@@ -1,4 +1,4 @@
-package com.jorge.utecgo.Activities;
+package com.utecgo.utecgo.Activities;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -9,10 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.jorge.utecgo.Activities.Principal;
-import com.jorge.utecgo.R;
-import com.jorge.utecgo.model.Net;
-import com.jorge.utecgo.model.Usuarios;
+import com.utecgo.utecgo.Activities.Principal;
+import com.utecgo.utecgo.R;
+import com.utecgo.utecgo.model.Net;
+import com.utecgo.utecgo.model.Usuarios;
 
 import org.json.JSONArray;
 

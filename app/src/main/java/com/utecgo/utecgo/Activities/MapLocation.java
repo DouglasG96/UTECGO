@@ -1,4 +1,4 @@
-package com.jorge.utecgo.Activities;
+package com.utecgo.utecgo.Activities;
 
 import android.Manifest;
 import android.content.Context;
@@ -24,7 +24,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
-import com.jorge.utecgo.R;
+import com.utecgo.utecgo.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;

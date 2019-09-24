@@ -1,4 +1,4 @@
-package com.jorge.utecgo.Activities.fragments;
+package com.utecgo.utecgo.Activities.fragments;
 
 
 import android.os.Bundle;
@@ -9,10 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.jorge.utecgo.R;
-import com.jorge.utecgo.adapter.PictureAdapterRecyclerView;
-import com.jorge.utecgo.model.Lugares;
-import com.jorge.utecgo.model.Picture;
+import com.utecgo.utecgo.R;
+import com.utecgo.utecgo.adapter.PictureAdapterRecyclerView;
+import com.utecgo.utecgo.model.Lugares;
+import com.utecgo.utecgo.model.Picture;
 
 import java.util.ArrayList;
 
@@ -65,14 +65,14 @@ public class EdificiosFragment extends Fragment {
 
         ArrayList<Picture> pictures =new ArrayList<>();
 
-        pictures.add(new Picture("http://utecgo.000webhostapp.com/images/edificios/bj.jpg","Benito Juarez","Calle arce 1114 (San Salvador,El Salvador)","","",""));
-        pictures.add(new Picture("http://utecgo.000webhostapp.com/images/edificios/fm.JPG","Francisco Morazan","Calle arce 1026 (San Salvador,El Salvador)","","",""));
-        pictures.add(new Picture("http://utecgo.000webhostapp.com/images/edificios/sb.jpg","Simon Bolivar","Calle arce (San Salvador,El Salvador)","","",""));
-        pictures.add(new Picture("http://utecgo.000webhostapp.com/images/edificios/fd.jpg","Los Fundadores","1ª calle Poniente ,1138  (San Salvador,El Salvador)","","",""));
-        pictures.add(new Picture("http://utecgo.000webhostapp.com/images/edificios/aq.jpg","Anastasio Aquino","Calle Arce 1006 (San Salvador,El Salvador)","","",""));
-        pictures.add(new Picture("http://utecgo.000webhostapp.com/images/edificios/jm.jpg","Jose Marti","Calle Arce y 17.ª avenida Norte (San Salvador,El Salvador)","","",""));
-        pictures.add(new Picture("http://utecgo.000webhostapp.com/images/edificios/cl.jpg","Claudia Lars","1ª calle Poniente y 17.ª avenida Norte (San Salvador,El Salvador","","",""));
-        pictures.add(new Picture("http://utecgo.000webhostapp.com/images/edificios/fgl.jpg","Federico Garcia Lorca","Calle Arce y 17ª avenida Sur","","",""));
+        pictures.add(new Picture("https://utecgo.appwebsv.com/images/edificios/bj.jpg","Benito Juarez","Calle arce 1114 (San Salvador,El Salvador)","","",""));
+        pictures.add(new Picture("https://utecgo.appwebsv.com/images/edificios/fm.JPG","Francisco Morazan","Calle arce 1026 (San Salvador,El Salvador)","","",""));
+        pictures.add(new Picture("https://utecgo.appwebsv.com/images/edificios/sb.jpg","Simon Bolivar","Calle arce (San Salvador,El Salvador)","","",""));
+        pictures.add(new Picture("https://utecgo.appwebsv.com/images/edificios/fd.jpg","Los Fundadores","1ª calle Poniente ,1138  (San Salvador,El Salvador)","","",""));
+        pictures.add(new Picture("https://utecgo.appwebsv.com/images/edificios/aq.jpg","Anastasio Aquino","Calle Arce 1006 (San Salvador,El Salvador)","","",""));
+        pictures.add(new Picture("https://utecgo.appwebsv.com/images/edificios/jm.jpg","Jose Marti","Calle Arce y 17.ª avenida Norte (San Salvador,El Salvador)","","",""));
+        pictures.add(new Picture("https://utecgo.appwebsv.com/images/edificios/cl.jpg","Claudia Lars","1ª calle Poniente y 17.ª avenida Norte (San Salvador,El Salvador","","",""));
+        pictures.add(new Picture("https://utecgo.appwebsv.com/images/edificios/fgl.jpg","Federico Garcia Lorca","Calle Arce y 17ª avenida Sur","","",""));
 
 
         return pictures;

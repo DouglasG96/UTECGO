@@ -1,4 +1,4 @@
-package com.jorge.utecgo.model;
+package com.utecgo.utecgo.model;
 
 /**
  * Created by jorge on 18/10/2017.

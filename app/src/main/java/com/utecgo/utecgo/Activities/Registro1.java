@@ -1,4 +1,4 @@
-package com.jorge.utecgo.Activities;
+package com.utecgo.utecgo.Activities;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -9,9 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.jorge.utecgo.R;
-import com.jorge.utecgo.model.Net;
-import com.jorge.utecgo.model.Usuarios;
+import com.utecgo.utecgo.R;
+import com.utecgo.utecgo.model.Net;
+import com.utecgo.utecgo.model.Usuarios;
 
 import org.json.JSONArray;
 
@@ -213,7 +213,7 @@ public class Registro1 extends AppCompatActivity {
         String rs="";
 
         try{
-            URL url=new URL("https://utecgo.000webhostapp.com/validacionCorreo.php");
+            URL url=new URL("https://utecgo.appwebsv.com/validacionCorreo.php");
             conex=(HttpURLConnection)url.openConnection();
             conex.setRequestMethod("POST");
             conex.setRequestProperty("Content-Length", "" + Integer.toString(parametros.getBytes().length));
@@ -248,7 +248,7 @@ public class Registro1 extends AppCompatActivity {
         String rs="";
 
         try{
-            URL url=new URL("https://utecgo.000webhostapp.com/validarUsuarios.php");
+            URL url=new URL("https://utecgo.appwebsv.com/validarUsuarios.php");
             conex=(HttpURLConnection)url.openConnection();
             conex.setRequestMethod("POST");
             conex.setRequestProperty("Content-Length", "" + Integer.toString(parametros.getBytes().length));

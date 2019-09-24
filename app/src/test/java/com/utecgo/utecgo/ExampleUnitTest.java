@@ -1,4 +1,4 @@
-package com.jorge.utecgo;
+package com.utecgo.utecgo;
 
 import org.junit.Test;
 

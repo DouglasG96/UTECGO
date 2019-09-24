@@ -1,4 +1,4 @@
-package com.jorge.utecgo.Activities.fragments;
+package com.utecgo.utecgo.Activities.fragments;
 
 
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.jorge.utecgo.R;
+import com.utecgo.utecgo.R;
 
 /**
  * A simple {@link Fragment} subclass.

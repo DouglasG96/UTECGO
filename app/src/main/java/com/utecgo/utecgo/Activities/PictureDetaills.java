@@ -1,4 +1,4 @@
-package com.jorge.utecgo.Activities;
+package com.utecgo.utecgo.Activities;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jorge.utecgo.R;
+import com.utecgo.utecgo.R;
 import com.squareup.picasso.Picasso;
 
 public class PictureDetaills extends AppCompatActivity {

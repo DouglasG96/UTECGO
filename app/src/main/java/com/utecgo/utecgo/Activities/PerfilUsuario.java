@@ -1,4 +1,4 @@
-package com.jorge.utecgo.Activities;
+package com.utecgo.utecgo.Activities;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.jorge.utecgo.R;
+import com.utecgo.utecgo.R;
 
 public class PerfilUsuario extends AppCompatActivity {
 
