@@ -118,7 +118,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:text="¿Has olvidado tu contraseña?"
-        android:id="@+id/textView"
+        android:id="@+id/tvRecuperar"
         android:textColor="@color/primary_dark"
         android:textColorLink="#ffffff"
         android:layout_alignParentBottom="true"

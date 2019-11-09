@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
 
+
+
     tools:context="com.jorge.utecgo.Activities.PictureDetaills">
 
 
@@ -13,14 +15,15 @@
         android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="256dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:contentScrim="@color/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
 
 
             >
@@ -29,17 +32,19 @@
                 android:id="@+id/imageHeader"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+
                 android:scaleType="centerCrop"
-                android:background="@drawable/benito"
-                app:layout_collapseMode="parallax"
+                app:layout_collapseMode="parallax" />
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbarScroll1"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_collapseMode="pin"
                 />
-
-
-
-
-
         </android.support.design.widget.CollapsingToolbarLayout>
-
 
 
     </android.support.design.widget.AppBarLayout>
@@ -48,8 +53,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        
+
         >
+
+
+
+
+
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -57,16 +69,7 @@
             android:paddingTop="@dimen/activity_vertical_margin"
 
             >
-            <TextView
-                android:id="@+id/nomEdificio"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="25sp"
-                android:text="Benito Juarez"
-                android:textStyle="bold"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_vertical_margin"
-                />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,7 +87,6 @@
                     android:textSize="20sp"
                     android:text="@string/lorem"
                     />
-
             </LinearLayout>
 
 
