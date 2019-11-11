@@ -5,6 +5,14 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/opt_auditorios"
+            android:icon="@drawable/ic_clock"
+            android:title="Auditorios" />
+        <item
+            android:id="@+id/opt_enfermerias"
+            android:icon="@drawable/ic_clock"
+            android:title="Enfermerias"/>
+        <item
             android:id="@+id/opt_cuenta"
             android:icon="@drawable/ic_user2"
             android:title="Cuenta" />

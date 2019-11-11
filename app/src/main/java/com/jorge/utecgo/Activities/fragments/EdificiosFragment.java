@@ -20,46 +20,25 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class EdificiosFragment extends Fragment {
-
-
     ArrayList<Picture> pictures;
     RecyclerView picturesRecycler;
-
-
     public EdificiosFragment() {
-
-
-
     }
-
 
     public void setLista(ArrayList<Picture> pictures)
     {
         this.pictures=pictures;
-
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View view=inflater.inflate(R.layout.fragment_edificios,container,false);
-
         picturesRecycler=(RecyclerView)view.findViewById(R.id.pictureRecycler);
-
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         picturesRecycler.setLayoutManager(linearLayoutManager);
-
         PictureAdapterRecyclerView pictureAdapterRecyclerView=new PictureAdapterRecyclerView(pictures,R.layout.cardview,getActivity());
-
         picturesRecycler.setAdapter(pictureAdapterRecyclerView);
-
-
-
         return view;
     }
-
-
 }
