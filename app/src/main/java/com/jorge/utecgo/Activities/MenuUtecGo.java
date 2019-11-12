@@ -1,6 +1,7 @@
 package com.jorge.utecgo.Activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -27,10 +28,20 @@ import android.view.Menu;
 import android.widget.Toast;
 import com.jorge.utecgo.Activities.fragments.AuditoriosFragment;
 import com.jorge.utecgo.Activities.fragments.EdificiosFragment;
+import com.jorge.utecgo.Activities.fragments.EnfermeriasFragment;
+import com.jorge.utecgo.Activities.fragments.GmapFragment;
 import com.jorge.utecgo.Activities.fragments.LaboratoriosFragment;
+import com.jorge.utecgo.Prueba;
 import com.jorge.utecgo.R;
+import com.jorge.utecgo.ui.home.HomeFragment;
 
-public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
+        Prueba.OnFragmentInteractionListener,
+        AuditoriosFragment.OnFragmentInteractionListener,
+        EnfermeriasFragment.OnFragmentInteractionListener,
+        EdificiosFragment.OnFragmentInteractionListener,
+        LaboratoriosFragment.OnFragmentInteractionListener,
+        GmapFragment.OnFragmentInteractionListener {
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -55,13 +66,18 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send,R.id.opt_cuenta,R.id.opt_edificios,R.id.opt_laboratorios,R.id.opt_bibliotecas)
+                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
                 .setDrawerLayout(drawer)
                 .build();
-        FragmentManager fragmentManager = getSupportFragmentManager();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        Fragment f = new HomeFragment();
+        if(f!=null)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_menu_utec_go_main,f).commit();
+        }
+        navigationView.setItemIconTintList(null);
     }
 
     @Override
@@ -108,19 +124,19 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         Fragment f = null;
         boolean fragmentSeleccionado = false;
         int id = item.getItemId();
-        if (id == R.id.opt_auditorios)
+        if (id == R.id.nav_auditorios)
         {
             Log.i("msg","Auditorios");
             f = new AuditoriosFragment();
             fragmentSeleccionado = true;
         }
-        if (id == R.id.opt_enfermerias)
+        if (id == R.id.nav_enfermerias)
         {
             Log.i("msg","Enfermerias");
             f = new AuditoriosFragment();
             fragmentSeleccionado = true;
         }
-        else if (id == R.id.opt_cuenta)
+        else if (id == R.id.nav_cuenta)
         {
             Log.i("msg","Cuenta");
             /*
@@ -128,7 +144,7 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
             startActivity(i);
             */
         }
-        else if (id == R.id.opt_laboratorios)
+        else if (id == R.id.nav_laboratorios)
         {
             Log.i("msg","Laboratorios");
             f = new LaboratoriosFragment();
@@ -144,14 +160,14 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
             */
 
         }
-        else if (id == R.id.opt_edificios)
+        else if (id == R.id.nav_edificios)
         {
             Log.i("msg","Edificios");
             f = new EdificiosFragment();
             fragmentSeleccionado = true;
             //Toast.makeText(this,"Edificios",Toast.LENGTH_LONG).show();
         }
-        else if (id == R.id.opt_bibliotecas)
+        else if (id == R.id.nav_bibliotecas)
         {
             Log.i("msg","bibliotecas");
             /*
@@ -160,14 +176,27 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
             */
         }
 
+        else if (id == R.id.nav_prueba)
+        {
+            Log.i("msg","Prueba");
+            f = new Prueba();
+            fragmentSeleccionado = true;
+        }
+
         if(fragmentSeleccionado)
         {
-            fragmentManager.beginTransaction().replace(R.id.drawer_layout,f).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_menu_utec_go_main,f).commit();
             item.setChecked(true);
             getSupportActionBar().setTitle(item.getTitle());
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return fragmentSeleccionado;
+        return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uir)
+    {
+
     }
 }
