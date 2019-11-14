@@ -1,6 +1,5 @@
 package com.jorge.utecgo.Activities.fragments;
 
-
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import android.view.ViewGroup;
 import com.jorge.utecgo.Prueba;
 import com.jorge.utecgo.R;
 import com.jorge.utecgo.adapter.PictureAdapterRecyclerView;
-import com.jorge.utecgo.model.Lugares;
 import com.jorge.utecgo.model.Picture;
 
 import java.util.ArrayList;
@@ -24,6 +22,7 @@ import java.util.ArrayList;
  */
 public class EdificiosFragment extends Fragment {
     private Prueba.OnFragmentInteractionListener mListener;
+
     ArrayList<Picture> pictures;
     RecyclerView picturesRecycler;
     public EdificiosFragment() {
@@ -37,11 +36,11 @@ public class EdificiosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_edificios,container,false);
-        picturesRecycler=(RecyclerView)view.findViewById(R.id.pictureRecycler);
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+        picturesRecycler= view.findViewById(R.id.pictureRecycler);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         picturesRecycler.setLayoutManager(linearLayoutManager);
-        PictureAdapterRecyclerView pictureAdapterRecyclerView=new PictureAdapterRecyclerView(pictures,R.layout.cardview,getActivity());
+        PictureAdapterRecyclerView pictureAdapterRecyclerView = new PictureAdapterRecyclerView(pictures,R.layout.cardview,getActivity());
         picturesRecycler.setAdapter(pictureAdapterRecyclerView);
         return view;
     }

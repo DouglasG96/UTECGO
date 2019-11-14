@@ -1,9 +1,9 @@
 package com.jorge.utecgo.Activities;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
@@ -33,6 +33,7 @@ import com.jorge.utecgo.Activities.fragments.GmapFragment;
 import com.jorge.utecgo.Activities.fragments.LaboratoriosFragment;
 import com.jorge.utecgo.Prueba;
 import com.jorge.utecgo.R;
+import com.jorge.utecgo.model.MyAsyncTask;
 import com.jorge.utecgo.ui.home.HomeFragment;
 
 public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
@@ -51,6 +52,7 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         setContentView(R.layout.activity_menu_utec_go);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        /*
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,9 +61,16 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
                         .setAction("Action", null).show();
             }
         });
+        */
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setItemIconTintList(null);
+        Fragment f = new HomeFragment();
+        if(f!=null)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_main,f).commit();
+        }
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -72,12 +81,7 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        Fragment f = new HomeFragment();
-        if(f!=null)
-        {
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_menu_utec_go_main,f).commit();
-        }
-        navigationView.setItemIconTintList(null);
+
     }
 
     @Override
@@ -119,24 +123,26 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment f = null;
         boolean fragmentSeleccionado = false;
         int id = item.getItemId();
-        if (id == R.id.nav_auditorios)
+        if (id == R.id.opc_auditorios)
         {
             Log.i("msg","Auditorios");
+            /*
             f = new AuditoriosFragment();
             fragmentSeleccionado = true;
+             */
         }
-        if (id == R.id.nav_enfermerias)
+        if (id == R.id.opc_enfermerias)
         {
             Log.i("msg","Enfermerias");
+            /*
             f = new AuditoriosFragment();
             fragmentSeleccionado = true;
+             */
         }
-        else if (id == R.id.nav_cuenta)
+        else if (id == R.id.opc_cuenta)
         {
             Log.i("msg","Cuenta");
             /*
@@ -144,11 +150,13 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
             startActivity(i);
             */
         }
-        else if (id == R.id.nav_laboratorios)
+        else if (id == R.id.opc_laboratorios)
         {
-            Log.i("msg","Laboratorios");
             f = new LaboratoriosFragment();
             fragmentSeleccionado = true;
+            MyAsyncTask llenarLaboratorios = new MyAsyncTask();
+            llenarLaboratorios.setTipo("2");
+            Log.i("msg","Laboratorios");
             /*
             LaboratoriosFragment framentLaboratorios = new LaboratoriosFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -158,25 +166,22 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
                     R.id.nav_home, new LaboratoriosFragment()
             ).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).addToBackStack(null).commit();
             */
-
         }
-        else if (id == R.id.nav_edificios)
+        else if (id == R.id.opc_edificios)
         {
-            Log.i("msg","Edificios");
             f = new EdificiosFragment();
             fragmentSeleccionado = true;
+            MyAsyncTask llenarEdificios = new MyAsyncTask();
+            llenarEdificios.setTipo("1");
+            Log.i("msg","Edificios");
             //Toast.makeText(this,"Edificios",Toast.LENGTH_LONG).show();
         }
-        else if (id == R.id.nav_bibliotecas)
+        else if (id == R.id.opc_bibliotecas)
         {
             Log.i("msg","bibliotecas");
-            /*
-            Intent i=new Intent(getApplicationContext(),MenuInicio.class);
-            startActivity(i);
-            */
         }
 
-        else if (id == R.id.nav_prueba)
+        else if (id == R.id.opc_prueba)
         {
             Log.i("msg","Prueba");
             f = new Prueba();
@@ -185,7 +190,7 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
 
         if(fragmentSeleccionado)
         {
-            fragmentManager.beginTransaction().replace(R.id.content_menu_utec_go_main,f).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_main,f).commit();
             item.setChecked(true);
             getSupportActionBar().setTitle(item.getTitle());
         }
