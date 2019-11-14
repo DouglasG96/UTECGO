@@ -8,25 +8,15 @@ import java.util.ArrayList;
 
 public class MyAsyncTask extends AsyncTask<String,Void, ArrayList<Picture>>
 {
-    private String tipo;
-    Lugares l=new Lugares();
-    public MyAsyncTask()
-    {
-
+    public String tipo;
+    public MyAsyncTask(String tipo){
+        this.tipo=tipo;
     }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
     @Override
     protected ArrayList<Picture> doInBackground(String... params) {
         ArrayList<Picture> pictures=new ArrayList<>();
-        String json=l.listarLugares(this.getTipo());
+        Lugares l=new Lugares();
+        String json=l.listarLugares(tipo);
         try {
             pictures=l.parseJsonFile(json);
         } catch (Exception e) {
@@ -36,8 +26,7 @@ public class MyAsyncTask extends AsyncTask<String,Void, ArrayList<Picture>>
     }
 
     protected void onPostExecute(ArrayList<Picture> result) {
-        String banderaTipo = this.getTipo();
-        switch (banderaTipo)
+        switch (tipo)
         {
             case "1":
                 EdificiosFragment edificiosFragment = new EdificiosFragment();

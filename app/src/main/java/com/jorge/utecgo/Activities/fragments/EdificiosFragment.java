@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.jorge.utecgo.Prueba;
 import com.jorge.utecgo.R;
 import com.jorge.utecgo.adapter.PictureAdapterRecyclerView;
 import com.jorge.utecgo.model.Picture;
@@ -21,11 +20,12 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class EdificiosFragment extends Fragment {
-    private Prueba.OnFragmentInteractionListener mListener;
+    private EdificiosFragment.OnFragmentInteractionListener mListener;
 
     ArrayList<Picture> pictures;
     RecyclerView picturesRecycler;
     public EdificiosFragment() {
+
     }
 
     public void setLista(ArrayList<Picture> pictures)
@@ -37,7 +37,7 @@ public class EdificiosFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_edificios,container,false);
         picturesRecycler= view.findViewById(R.id.pictureRecycler);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         picturesRecycler.setLayoutManager(linearLayoutManager);
         PictureAdapterRecyclerView pictureAdapterRecyclerView = new PictureAdapterRecyclerView(pictures,R.layout.cardview,getActivity());
@@ -56,8 +56,8 @@ public class EdificiosFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof Prueba.OnFragmentInteractionListener) {
-            mListener = (Prueba.OnFragmentInteractionListener) context;
+        if (context instanceof EdificiosFragment.OnFragmentInteractionListener) {
+            mListener = (EdificiosFragment.OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");

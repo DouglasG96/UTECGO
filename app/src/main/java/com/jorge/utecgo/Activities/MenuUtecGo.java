@@ -1,31 +1,24 @@
 package com.jorge.utecgo.Activities;
 
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentManager;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.Toast;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
-
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.widget.Toast;
 import com.jorge.utecgo.Activities.fragments.AuditoriosFragment;
 import com.jorge.utecgo.Activities.fragments.EdificiosFragment;
 import com.jorge.utecgo.Activities.fragments.EnfermeriasFragment;
@@ -45,6 +38,7 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         GmapFragment.OnFragmentInteractionListener {
 
     private AppBarConfiguration mAppBarConfiguration;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,8 +74,9 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
-
+        /*
+            NavigationUI.setupWithNavController(navigationView, navController);
+         */
     }
 
     @Override
@@ -98,90 +93,58 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
                 || super.onSupportNavigateUp();
     }
 
-    /*
     public boolean onOptionItemSelected(MenuItem item)
     {
         int id = item.getItemId();
-        if (id == R.id.opt_cuenta) {
-            Intent i=new Intent(getApplicationContext(),PerfilUsuario.class);
-            startActivity(i);
-        } else if (id == R.id.opt_laboratorios) {
-            Intent i=new Intent(getApplicationContext(),ContenedorActivity.class);
-            startActivity(i);
-        } else if (id == R.id.opt_edificios) {
-
-        } else if (id == R.id.opt_bibliotecas) {
-            Intent i=new Intent(getApplicationContext(),MenuInicio.class);
-            startActivity(i);
+        if (id == R.id.opt_configuracion) {
+           Toast.makeText(this,"Aqui van las configuracione o preferencias", Toast.LENGTH_SHORT).show();
+           return true;
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 
-            */
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         Fragment f = null;
         boolean fragmentSeleccionado = false;
         int id = item.getItemId();
-        if (id == R.id.opc_auditorios)
+        String banderaAsyncTask = "";
+        if (id == R.id.nav_auditorios)
         {
             Log.i("msg","Auditorios");
-            /*
             f = new AuditoriosFragment();
             fragmentSeleccionado = true;
-             */
         }
-        if (id == R.id.opc_enfermerias)
+        if (id == R.id.nav_enfermerias)
         {
             Log.i("msg","Enfermerias");
-            /*
             f = new AuditoriosFragment();
             fragmentSeleccionado = true;
-             */
         }
-        else if (id == R.id.opc_cuenta)
+        else if (id == R.id.nav_cuenta)
         {
             Log.i("msg","Cuenta");
-            /*
-            Intent i=new Intent(getApplicationContext(),PerfilUsuario.class);
-            startActivity(i);
-            */
         }
-        else if (id == R.id.opc_laboratorios)
+        else if (id == R.id.nav_laboratorios)
         {
+            banderaAsyncTask = "2";
             f = new LaboratoriosFragment();
             fragmentSeleccionado = true;
-            MyAsyncTask llenarLaboratorios = new MyAsyncTask();
-            llenarLaboratorios.setTipo("2");
             Log.i("msg","Laboratorios");
-            /*
-            LaboratoriosFragment framentLaboratorios = new LaboratoriosFragment();
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.nav_home,framentLaboratorios,"Laboratorios");
-            fragmentTransaction.commit();
-            fragmentManager.beginTransaction().replace(
-                    R.id.nav_home, new LaboratoriosFragment()
-            ).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).addToBackStack(null).commit();
-            */
         }
-        else if (id == R.id.opc_edificios)
+        else if (id == R.id.nav_edificios)
         {
+            banderaAsyncTask = "1";
             f = new EdificiosFragment();
             fragmentSeleccionado = true;
-            MyAsyncTask llenarEdificios = new MyAsyncTask();
-            llenarEdificios.setTipo("1");
             Log.i("msg","Edificios");
-            //Toast.makeText(this,"Edificios",Toast.LENGTH_LONG).show();
         }
-        else if (id == R.id.opc_bibliotecas)
+        else if (id == R.id.nav_bibliotecas)
         {
             Log.i("msg","bibliotecas");
         }
-
-        else if (id == R.id.opc_prueba)
+        else if (id == R.id.nav_prueba)
         {
             Log.i("msg","Prueba");
             f = new Prueba();
@@ -190,9 +153,11 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
 
         if(fragmentSeleccionado)
         {
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_main,f).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_main,f).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).addToBackStack(null).commit();
             item.setChecked(true);
             getSupportActionBar().setTitle(item.getTitle());
+            MyAsyncTask myAsyncTask= new MyAsyncTask(banderaAsyncTask);
+            myAsyncTask.execute(banderaAsyncTask);
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

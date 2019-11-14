@@ -44,7 +44,8 @@
         <activity android:name=".Activities.RegistroClave" />
         <activity
             android:name=".Activities.ContenedorActivity"
-            android:configChanges="screenSize|orientation" />
+            android:configChanges="screenSize|orientation">
+        </activity>
         <activity android:name=".Activities.PictureDetaills" />
         <activity android:name=".Activities.PerfilUsuario" />
         <!--
@@ -65,7 +66,8 @@
         <activity
             android:name=".Activities.navigation"
             android:label="@string/title_activity_navigation"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".Activities.Recuperar_contrasena" />
         <activity android:name=".Activities.Detalles" />
         <activity android:name=".Activities.Detalles1" />

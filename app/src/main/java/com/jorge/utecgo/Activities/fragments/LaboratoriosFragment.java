@@ -22,7 +22,8 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class LaboratoriosFragment extends Fragment {
-    private Prueba.OnFragmentInteractionListener mListener;
+
+    private LaboratoriosFragment.OnFragmentInteractionListener mListener;
     ArrayList<Picture> pictures;
     RecyclerView picturesRecycler;
 
@@ -40,11 +41,11 @@ public class LaboratoriosFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_laboratorios, container, false);
-        picturesRecycler=(RecyclerView)view.findViewById(R.id.pictureRecycler);
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+        picturesRecycler = view.findViewById(R.id.pictureRecycler);
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         picturesRecycler.setLayoutManager(linearLayoutManager);
-        PictureAdapterRecyclerView pictureAdapterRecyclerView=new PictureAdapterRecyclerView(pictures,R.layout.cardview,getActivity());
+        PictureAdapterRecyclerView pictureAdapterRecyclerView = new PictureAdapterRecyclerView(pictures,R.layout.cardview,getActivity());
         picturesRecycler.setAdapter(pictureAdapterRecyclerView);
         return view;
     }
@@ -59,8 +60,8 @@ public class LaboratoriosFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof Prueba.OnFragmentInteractionListener) {
-            mListener = (Prueba.OnFragmentInteractionListener) context;
+        if (context instanceof LaboratoriosFragment.OnFragmentInteractionListener) {
+            mListener = (LaboratoriosFragment.OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");

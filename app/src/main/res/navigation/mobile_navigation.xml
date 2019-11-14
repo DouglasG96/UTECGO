@@ -40,40 +40,38 @@
         android:name="com.jorge.utecgo.ui.send.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
-    <!--
     <fragment
         android:id="@+id/nav_auditorios"
         android:name="com.jorge.utecgo.Activities.fragments.AuditoriosFragment"
         android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send"
+        tools:layout="@layout/fragment_auditorios"
         />
 
     <fragment
         android:id="@+id/nav_enfermerias"
         android:name="com.jorge.utecgo.Activities.fragments.EnfermeriasFragment"
         android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send"
+        tools:layout="@layout/fragment_enfermerias"
         />
 
     <fragment
         android:id="@+id/nav_edificios"
         android:name="com.jorge.utecgo.Activities.fragments.EdificiosFragment"
         android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send"
+        tools:layout="@layout/fragment_edificios"
         />
 
     <fragment
         android:id="@+id/nav_laboratorios"
         android:name="com.jorge.utecgo.Activities.fragments.LaboratoriosFragment"
         android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send"
+        tools:layout="@layout/fragment_laboratorios"
         />
 
     <fragment
         android:id="@+id/nav_prueba"
         android:name="com.jorge.utecgo.Prueba"
         android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send"
+        tools:layout="@layout/fragment_prueba"
         />
-    -->
 </navigation>

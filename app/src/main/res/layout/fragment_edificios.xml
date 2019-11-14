@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    class="com.jorge.utecgo.Activities.fragments.EdificiosFragment">
+    tools:context="com.jorge.utecgo.Activities.fragments.EdificiosFragment">
 
     <LinearLayout
         android:layout_height="match_parent"
