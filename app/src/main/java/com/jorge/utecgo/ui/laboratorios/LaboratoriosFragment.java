@@ -1,4 +1,5 @@
-package com.jorge.utecgo.Activities.fragments;
+package com.jorge.utecgo.ui.laboratorios;
+
 
 import android.content.Context;
 import android.net.Uri;
@@ -19,32 +20,29 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EdificiosFragment extends Fragment {
-    private EdificiosFragment.OnFragmentInteractionListener mListener;
+public class LaboratoriosFragment extends Fragment {
 
-    ArrayList<Picture> pictures;
+    private OnFragmentInteractionListener mListener;
+    LaboratoriosViewModel laboratoriosViewModel;
     RecyclerView picturesRecycler;
-    public EdificiosFragment() {
 
+    public LaboratoriosFragment() {
+        laboratoriosViewModel = new LaboratoriosViewModel();
     }
 
-    public void setLista(ArrayList<Picture> pictures)
-    {
-        this.pictures=pictures;
-    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_edificios,container,false);
-        picturesRecycler= view.findViewById(R.id.pictureRecycler);
+        // Inflate the layout for this fragment
+        View view=inflater.inflate(R.layout.fragment_laboratorios, container, false);
+        picturesRecycler = view.findViewById(R.id.pictureRecycler);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         picturesRecycler.setLayoutManager(linearLayoutManager);
-        PictureAdapterRecyclerView pictureAdapterRecyclerView = new PictureAdapterRecyclerView(pictures,R.layout.cardview,getActivity());
+        PictureAdapterRecyclerView pictureAdapterRecyclerView = new PictureAdapterRecyclerView(laboratoriosViewModel.getLista(),R.layout.cardview,getActivity());
         picturesRecycler.setAdapter(pictureAdapterRecyclerView);
         return view;
     }
-
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -56,8 +54,8 @@ public class EdificiosFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof EdificiosFragment.OnFragmentInteractionListener) {
-            mListener = (EdificiosFragment.OnFragmentInteractionListener) context;
+        if (context instanceof LaboratoriosFragment.OnFragmentInteractionListener) {
+            mListener = (LaboratoriosFragment.OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");

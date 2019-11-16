@@ -21,7 +21,7 @@ public class Lugares {
             URL url=new URL("http://utecgo.appwebsv.com/listaLugares.php");
             conex=(HttpURLConnection)url.openConnection();
             conex.setRequestMethod("POST");
-            conex.setRequestProperty("Content-Length", "" + Integer.toString(parametros.getBytes().length));
+            conex.setRequestProperty("Content-Length", "" +(parametros.getBytes().length));
             conex.setDoOutput(true);
             DataOutputStream wr=new DataOutputStream(conex.getOutputStream());
             wr.writeBytes(parametros);
@@ -40,7 +40,7 @@ public class Lugares {
 
     //Devuelve un ArrayList generico de tipo Picture para llenar los adaptadores (para los RecyclerView) de las listas del los diferentes tipos de lugares
     public ArrayList<Picture> parseJsonFile(String jsonStr) throws Exception{
-        ArrayList<Picture> arr=new ArrayList<Picture>();
+        ArrayList<Picture> arr=new ArrayList<>();
         JSONArray lugares =new JSONArray(jsonStr);
         for(int i=0;i<lugares.length();i++)
         {

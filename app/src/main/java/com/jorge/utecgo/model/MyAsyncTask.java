@@ -1,9 +1,10 @@
 package com.jorge.utecgo.model;
 import android.os.AsyncTask;
 
-import com.jorge.utecgo.Activities.fragments.EdificiosFragment;
-import com.jorge.utecgo.Activities.fragments.LaboratoriosFragment;
-import com.jorge.utecgo.R;
+import com.jorge.utecgo.ui.laboratorios.LaboratoriosFragment;
+import com.jorge.utecgo.ui.edificios.EdificiosViewModel;
+import com.jorge.utecgo.ui.laboratorios.LaboratoriosViewModel;
+
 import java.util.ArrayList;
 
 public class MyAsyncTask extends AsyncTask<String,Void, ArrayList<Picture>>
@@ -29,12 +30,10 @@ public class MyAsyncTask extends AsyncTask<String,Void, ArrayList<Picture>>
         switch (tipo)
         {
             case "1":
-                EdificiosFragment edificiosFragment = new EdificiosFragment();
-                edificiosFragment.setLista(result);
+                EdificiosViewModel edificiosViewModel = new EdificiosViewModel(result);
                 break;
             case "2":
-                LaboratoriosFragment laboratoriosFragment = new LaboratoriosFragment();
-                laboratoriosFragment.setLista(result);
+                LaboratoriosViewModel laboratoriosFragment = new LaboratoriosViewModel(result);
                 break;
             case "3":
                 break;
@@ -43,6 +42,9 @@ public class MyAsyncTask extends AsyncTask<String,Void, ArrayList<Picture>>
             case "5":
                 break;
             case "6":
+                break;
+            default:
+
                 break;
         }
     }

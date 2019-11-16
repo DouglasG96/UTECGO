@@ -1,6 +1,5 @@
 package com.jorge.utecgo.Activities;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentTransaction;
@@ -8,9 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.jorge.utecgo.Activities.fragments.AuditoriosFragment;
-import com.jorge.utecgo.Activities.fragments.EdificiosFragment;
+import com.jorge.utecgo.ui.edificios.EdificiosFragment;
 import com.jorge.utecgo.Activities.fragments.EnfermeriasFragment;
-import com.jorge.utecgo.Activities.fragments.LaboratoriosFragment;
 import com.jorge.utecgo.R;
 import com.jorge.utecgo.model.Lugares;
 import com.jorge.utecgo.model.Picture;
@@ -96,8 +94,7 @@ public class ContenedorActivity extends AppCompatActivity {
                     break;
             }
             */
-            EdificiosFragment fragmentEdif=new EdificiosFragment();
-            fragmentEdif.setLista(result);
+            EdificiosFragment fragmentEdif = new EdificiosFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.container,fragmentEdif).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).addToBackStack(null).commit();
         }
     }

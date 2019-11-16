@@ -20,10 +20,10 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.jorge.utecgo.Activities.fragments.AuditoriosFragment;
-import com.jorge.utecgo.Activities.fragments.EdificiosFragment;
+import com.jorge.utecgo.ui.edificios.EdificiosFragment;
 import com.jorge.utecgo.Activities.fragments.EnfermeriasFragment;
 import com.jorge.utecgo.Activities.fragments.GmapFragment;
-import com.jorge.utecgo.Activities.fragments.LaboratoriosFragment;
+import com.jorge.utecgo.ui.laboratorios.LaboratoriosFragment;
 import com.jorge.utecgo.Prueba;
 import com.jorge.utecgo.R;
 import com.jorge.utecgo.model.MyAsyncTask;
@@ -138,7 +138,6 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
             banderaAsyncTask = "1";
             f = new EdificiosFragment();
             fragmentSeleccionado = true;
-            Log.i("msg","Edificios");
         }
         else if (id == R.id.nav_bibliotecas)
         {

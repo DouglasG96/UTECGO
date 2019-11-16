@@ -56,14 +56,14 @@
 
     <fragment
         android:id="@+id/nav_edificios"
-        android:name="com.jorge.utecgo.Activities.fragments.EdificiosFragment"
+        android:name="com.jorge.utecgo.ui.edificios.EdificiosFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_edificios"
         />
 
     <fragment
         android:id="@+id/nav_laboratorios"
-        android:name="com.jorge.utecgo.Activities.fragments.LaboratoriosFragment"
+        android:name="com.jorge.utecgo.ui.laboratorios.LaboratoriosFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_laboratorios"
         />

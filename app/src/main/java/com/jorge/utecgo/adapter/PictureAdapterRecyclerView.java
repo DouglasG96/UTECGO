@@ -3,6 +3,7 @@ package com.jorge.utecgo.adapter;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 
 public class PictureAdapterRecyclerView extends RecyclerView.Adapter<PictureAdapterRecyclerView.PictureViewHolder>{
 
-    private ArrayList<Picture> pictures = null;
+    private ArrayList<Picture> pictures;
     private int resource;
     private Activity activity;
 
@@ -33,6 +34,7 @@ public class PictureAdapterRecyclerView extends RecyclerView.Adapter<PictureAdap
         this.pictures=pictures;
         this.resource=resource;
         this.activity=activity;
+        Log.i("picrecycler",toString());
     }
 
     @Override
