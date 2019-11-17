@@ -6,12 +6,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.jorge.utecgo.R;
 import com.jorge.utecgo.adapter.PictureAdapterRecyclerView;
+import com.jorge.utecgo.model.Picture;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,11 +23,14 @@ import com.jorge.utecgo.adapter.PictureAdapterRecyclerView;
 public class EdificiosFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+    private RecyclerView picturesRecycler;
+    private ArrayList<Picture>  pictures;
+    private  EdificiosViewModel edificiosViewModel;
 
-    private RecyclerView picturesRecycler = null;
-    private EdificiosViewModel edificiosViewModel;
-    public EdificiosFragment() {
+    public EdificiosFragment()
+    {
         edificiosViewModel = new EdificiosViewModel();
+        pictures = edificiosViewModel.getPictures();
     }
 
     @Override
@@ -31,6 +38,7 @@ public class EdificiosFragment extends Fragment {
         return "EdificiosFragment{" +
                 "mListener=" + mListener +
                 ", picturesRecycler=" + picturesRecycler +
+                ", pictures=" + pictures +
                 ", edificiosViewModel=" + edificiosViewModel +
                 '}';
     }
@@ -39,11 +47,12 @@ public class EdificiosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edificios, container, false);
+        Log.i("edificiosFragment",toString());
         picturesRecycler= view.findViewById(R.id.pictureRecycler);
-        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         picturesRecycler.setLayoutManager(linearLayoutManager);
-        PictureAdapterRecyclerView pictureAdapterRecyclerView = new PictureAdapterRecyclerView(edificiosViewModel.getLista(),R.layout.cardview,getActivity());
+        PictureAdapterRecyclerView pictureAdapterRecyclerView = new PictureAdapterRecyclerView(pictures,R.layout.cardview,getActivity());
         picturesRecycler.setAdapter(pictureAdapterRecyclerView);
         return view;
     }

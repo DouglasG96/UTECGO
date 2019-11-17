@@ -1,6 +1,8 @@
 package com.jorge.utecgo.model;
 import android.os.AsyncTask;
+import android.util.Log;
 
+import com.jorge.utecgo.ui.edificios.EdificiosFragment;
 import com.jorge.utecgo.ui.laboratorios.LaboratoriosFragment;
 import com.jorge.utecgo.ui.edificios.EdificiosViewModel;
 import com.jorge.utecgo.ui.laboratorios.LaboratoriosViewModel;
@@ -15,7 +17,7 @@ public class MyAsyncTask extends AsyncTask<String,Void, ArrayList<Picture>>
     }
     @Override
     protected ArrayList<Picture> doInBackground(String... params) {
-        ArrayList<Picture> pictures=new ArrayList<>();
+        ArrayList<Picture> pictures=new ArrayList<Picture>();
         Lugares l=new Lugares();
         String json=l.listarLugares(tipo);
         try {
@@ -30,10 +32,11 @@ public class MyAsyncTask extends AsyncTask<String,Void, ArrayList<Picture>>
         switch (tipo)
         {
             case "1":
-                EdificiosViewModel edificiosViewModel = new EdificiosViewModel(result);
+                EdificiosViewModel edificiosViewModel = new EdificiosViewModel();
+                edificiosViewModel.setPictures(result);
                 break;
             case "2":
-                LaboratoriosViewModel laboratoriosFragment = new LaboratoriosViewModel(result);
+                LaboratoriosViewModel laboratoriosViewModel = new LaboratoriosViewModel(result);
                 break;
             case "3":
                 break;

@@ -34,7 +34,6 @@ public class PictureAdapterRecyclerView extends RecyclerView.Adapter<PictureAdap
         this.pictures=pictures;
         this.resource=resource;
         this.activity=activity;
-        Log.i("picrecycler",toString());
     }
 
     @Override
