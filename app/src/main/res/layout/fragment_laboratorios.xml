@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jorge.utecgo.Activities.fragments.LaboratoriosFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.jorge.utecgo.ui.laboratorios.LaboratoriosFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -11,5 +12,21 @@
         android:text="LABORATORIOS"
         android:gravity="center"
         />
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/pictureRecycler"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
 
 </FrameLayout>

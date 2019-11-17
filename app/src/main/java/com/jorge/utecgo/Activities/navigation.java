@@ -23,32 +23,22 @@ import com.jorge.utecgo.model.Usuarios;
 
 public class navigation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
         getSupportActionBar().setTitle("UTEC GO");
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        /*
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
+        */
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-
-
     }
 
     @Override
@@ -79,7 +69,6 @@ public class navigation extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -88,39 +77,18 @@ public class navigation extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-
-
         if (id == R.id.nav_camera) {
-
             Intent i=new Intent(getApplicationContext(),PerfilUsuario.class);
-
             startActivity(i);
-
-
         } else if (id == R.id.nav_gallery) {
-
             Intent i=new Intent(getApplicationContext(),ContenedorActivity.class);
-
             startActivity(i);
-
-
         } else if (id == R.id.nav_slideshow) {
 
-
-
         } else if (id == R.id.nav_share) {
-
             Intent i=new Intent(getApplicationContext(),MenuInicio.class);
-
             startActivity(i);
-
-
-
-
-
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

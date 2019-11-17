@@ -3,6 +3,7 @@ package com.jorge.utecgo.adapter;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
  * Created by jorge on 18/10/2017.
  */
 
-public class PictureAdapterRecyclerView extends  RecyclerView.Adapter<PictureAdapterRecyclerView.PictureViewHolder>{
+public class PictureAdapterRecyclerView extends RecyclerView.Adapter<PictureAdapterRecyclerView.PictureViewHolder>{
 
     private ArrayList<Picture> pictures;
     private int resource;
@@ -33,38 +34,28 @@ public class PictureAdapterRecyclerView extends  RecyclerView.Adapter<PictureAda
         this.pictures=pictures;
         this.resource=resource;
         this.activity=activity;
-
     }
 
     @Override
     public PictureViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view= LayoutInflater.from(parent.getContext()).inflate(resource,parent,false);
-
         return new PictureViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(PictureViewHolder holder, int position) {
-
-
         final Picture picture=pictures.get(position);
         final String nombre=picture.getNombreEdificio();
         holder.nombreEdificio.setText(picture.getNombreEdificio());
         holder.descripcionCard.setText(picture.getDireccion());
         Glide.with(activity).load(picture.getPicture()).into(holder.pictureCard);
 
-
-
         holder.pictureCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
-
-
                 Intent i=new Intent(activity, PictureDetaills.class);
-
                 i.putExtra("nombre",picture.getNombreEdificio());
                 i.putExtra("dependencias",picture.getDependencias());
                 i.putExtra("foto",picture.getPicture());
@@ -72,34 +63,27 @@ public class PictureAdapterRecyclerView extends  RecyclerView.Adapter<PictureAda
                 i.putExtra("longitud",picture.getLongitud());
 
                 activity.startActivity(i);
-
             }
         });
-
     }
 
     @Override
     public int getItemCount() {
         return pictures.size();
     }
-
     public class PictureViewHolder extends RecyclerView.ViewHolder{
 
         private ImageView pictureCard;
         private TextView nombreEdificio;
         private TextView descripcionCard;
 
-            public PictureViewHolder(View itemView)
-            {
-                super(itemView);
-
-                pictureCard=(ImageView)itemView.findViewById(R.id.imagenCard);
-                nombreEdificio=(TextView)itemView.findViewById(R.id.nombreEdificio);
-                descripcionCard=(TextView)itemView.findViewById(R.id.direccion);
-            }
-
-
-
-
+        public PictureViewHolder(View itemView)
+        {
+            super(itemView);
+            pictureCard= itemView.findViewById(R.id.imagenCard);
+            nombreEdificio= itemView.findViewById(R.id.nombreEdificio);
+            descripcionCard= itemView.findViewById(R.id.direccion);
+        }
     }
+
 }

@@ -5,20 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.jorge.utecgo.Activities.ContenedorActivity">
-
-
-
-
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="70dp"
         />
-
-
     <include layout="@layout/bottombar"></include>
-
-
-
 </RelativeLayout>

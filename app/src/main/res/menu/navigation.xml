@@ -6,8 +6,15 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
-
-
-
-
+    <item
+        android:id="@+id/cuenta"
+        android:orderInCategory="100"
+        android:title="@string/cuenta"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/acerca_de"
+        android:orderInCategory="100"
+        android:title="@string/acerca_de"
+        app:showAsAction="never"
+        />
 </menu>
