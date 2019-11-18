@@ -27,6 +27,13 @@ public class EdificiosFragment extends Fragment {
     private ArrayList<Picture>  pictures;
     private  EdificiosViewModel edificiosViewModel;
 
+
+    public void setLista(ArrayList<Picture> pictures)
+    {
+        this.pictures=pictures;
+
+    }
+
     public EdificiosFragment()
     {
         edificiosViewModel = new EdificiosViewModel();

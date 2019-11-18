@@ -1,6 +1,7 @@
 package com.jorge.utecgo.model;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.util.LogPrinter;
 
 import com.jorge.utecgo.ui.edificios.EdificiosFragment;
 import com.jorge.utecgo.ui.laboratorios.LaboratoriosFragment;
@@ -14,14 +15,23 @@ public class MyAsyncTask extends AsyncTask<String,Void, ArrayList<Picture>>
     public String tipo;
     public MyAsyncTask(String tipo){
         this.tipo=tipo;
+
+        Log.d("CONSTRUCTOR", "***********************************************************");
     }
     @Override
     protected ArrayList<Picture> doInBackground(String... params) {
+        Log.d("DOINBACKGROUND", "***********************************************************");
+
         ArrayList<Picture> pictures=new ArrayList<Picture>();
         Lugares l=new Lugares();
+        Log.d("CONTENIDO", l.toString());
         String json=l.listarLugares(tipo);
+
+        Log.d("CONTENIDO2", json);
         try {
             pictures=l.parseJsonFile(json);
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -32,8 +42,8 @@ public class MyAsyncTask extends AsyncTask<String,Void, ArrayList<Picture>>
         switch (tipo)
         {
             case "1":
-                EdificiosViewModel edificiosViewModel = new EdificiosViewModel();
-                edificiosViewModel.setPictures(result);
+                Log.d("Render" , "Edificios Render");
+
                 break;
             case "2":
                 LaboratoriosViewModel laboratoriosViewModel = new LaboratoriosViewModel(result);

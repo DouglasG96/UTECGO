@@ -26,21 +26,35 @@ public class LaboratoriosFragment extends Fragment {
     LaboratoriosViewModel laboratoriosViewModel;
     RecyclerView picturesRecycler;
 
+    ArrayList<Picture> pictures;
+
     public LaboratoriosFragment() {
-        laboratoriosViewModel = new LaboratoriosViewModel();
+        // Required empty public constructor
     }
+
+    public void setLista(ArrayList<Picture> pictures)
+    {
+        this.pictures=pictures;
+
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_laboratorios, container, false);
-        picturesRecycler = view.findViewById(R.id.pictureRecycler);
-        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+
+        picturesRecycler=(RecyclerView)view.findViewById(R.id.pictureRecycler);
+
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         picturesRecycler.setLayoutManager(linearLayoutManager);
-        PictureAdapterRecyclerView pictureAdapterRecyclerView = new PictureAdapterRecyclerView(laboratoriosViewModel.getLista(),R.layout.cardview,getActivity());
+
+        PictureAdapterRecyclerView pictureAdapterRecyclerView=new PictureAdapterRecyclerView(pictures,R.layout.cardview,getActivity());
+
         picturesRecycler.setAdapter(pictureAdapterRecyclerView);
+
         return view;
     }
 

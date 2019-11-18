@@ -1,6 +1,8 @@
 package com.jorge.utecgo.model;
 
 
+import android.util.Log;
+
 import org.json.JSONArray;
 
 import java.io.DataOutputStream;
@@ -18,7 +20,7 @@ public class Lugares {
         HttpURLConnection conex=null;
         String rs="";
         try{
-            URL url=new URL("http://utecgo.appwebsv.com/listaLugares.php");
+            URL url=new URL("https://utecgo.appwebsv.com/listaLugares.php");
             conex=(HttpURLConnection)url.openConnection();
             conex.setRequestMethod("POST");
             conex.setRequestProperty("Content-Length", "" +(parametros.getBytes().length));
@@ -34,13 +36,19 @@ public class Lugares {
         }
         catch(Exception ex)
         {
+            ex.printStackTrace();
         }
+
+
+
         return rs;
     }
 
     //Devuelve un ArrayList generico de tipo Picture para llenar los adaptadores (para los RecyclerView) de las listas del los diferentes tipos de lugares
     public ArrayList<Picture> parseJsonFile(String jsonStr) throws Exception{
         ArrayList<Picture> arr=new ArrayList<>();
+        Log.wtf("JSON FILE", jsonStr);
+
         JSONArray lugares =new JSONArray(jsonStr);
         for(int i=0;i<lugares.length();i++)
         {

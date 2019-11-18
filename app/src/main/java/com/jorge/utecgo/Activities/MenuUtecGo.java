@@ -1,6 +1,7 @@
 package com.jorge.utecgo.Activities;
 
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -20,14 +21,17 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.jorge.utecgo.Activities.fragments.AuditoriosFragment;
+import com.jorge.utecgo.model.Lugares;
+import com.jorge.utecgo.model.Picture;
 import com.jorge.utecgo.ui.edificios.EdificiosFragment;
 import com.jorge.utecgo.Activities.fragments.EnfermeriasFragment;
 import com.jorge.utecgo.Activities.fragments.GmapFragment;
 import com.jorge.utecgo.ui.laboratorios.LaboratoriosFragment;
 import com.jorge.utecgo.Prueba;
 import com.jorge.utecgo.R;
-import com.jorge.utecgo.model.MyAsyncTask;
 import com.jorge.utecgo.ui.home.HomeFragment;
+ 
+import java.util.ArrayList;
 
 public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
         Prueba.OnFragmentInteractionListener,
@@ -39,6 +43,7 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    private Fragment fragmentoSeleccionado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,11 +65,7 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
-        Fragment f = new HomeFragment();
-        if(f!=null)
-        {
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_main,f).commit();
-        }
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -113,13 +114,13 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         if (id == R.id.nav_auditorios)
         {
             Log.i("msg","Auditorios");
-            f = new AuditoriosFragment();
+            fragmentoSeleccionado = new AuditoriosFragment();
             fragmentSeleccionado = true;
         }
         if (id == R.id.nav_enfermerias)
         {
             Log.i("msg","Enfermerias");
-            f = new AuditoriosFragment();
+            fragmentoSeleccionado = new AuditoriosFragment();
             fragmentSeleccionado = true;
         }
         else if (id == R.id.nav_cuenta)
@@ -129,14 +130,14 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         else if (id == R.id.nav_laboratorios)
         {
             banderaAsyncTask = "2";
-            f = new LaboratoriosFragment();
+            fragmentoSeleccionado = new LaboratoriosFragment();
             fragmentSeleccionado = true;
             Log.i("msg","Laboratorios");
         }
         else if (id == R.id.nav_edificios)
         {
             banderaAsyncTask = "1";
-            f = new EdificiosFragment();
+            fragmentoSeleccionado = new EdificiosFragment();
             fragmentSeleccionado = true;
         }
         else if (id == R.id.nav_bibliotecas)
@@ -146,17 +147,18 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         else if (id == R.id.nav_prueba)
         {
             Log.i("msg","Prueba");
-            f = new Prueba();
+            fragmentoSeleccionado = new Prueba();
             fragmentSeleccionado = true;
         }
 
         if(fragmentSeleccionado)
         {
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_main,f).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).addToBackStack(null).commit();
+
             item.setChecked(true);
             getSupportActionBar().setTitle(item.getTitle());
             MyAsyncTask myAsyncTask= new MyAsyncTask(banderaAsyncTask);
             myAsyncTask.execute(banderaAsyncTask);
+            //getSupportFragmentManager().beginTransaction().replace(R.id.content_main,fragmentoSeleccionado).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).addToBackStack(null).commit();
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -167,5 +169,50 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
     public void onFragmentInteraction(Uri uir)
     {
 
+    }
+
+    class MyAsyncTask extends AsyncTask<String,Void, ArrayList<Picture>>
+    {
+        public String tipo;
+        public MyAsyncTask(String tipo){
+            this.tipo=tipo;
+        }
+        @Override
+        protected ArrayList<Picture> doInBackground(String... params) {
+            ArrayList<Picture> pictures=new ArrayList<>();
+            Lugares l=new Lugares();
+            String json=l.listarLugares(tipo);
+            try {
+                pictures=l.parseJsonFile(json);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return pictures;
+        }
+
+        protected void onPostExecute(ArrayList<Picture> result) {
+
+            switch(tipo){
+                case "1":
+                    EdificiosFragment fragmentEdif=new EdificiosFragment();
+                    fragmentEdif.setLista(result);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.content_main,fragmentEdif).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).addToBackStack(null).commit();
+                    break;
+                case "2":
+                    LaboratoriosFragment fragmentLab=new LaboratoriosFragment();
+                    fragmentLab.setLista(result);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.content_main,fragmentLab).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).addToBackStack(null).commit();
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+            }
+
+
+            //getSupportFragmentManager().beginTransaction().replace(R.id.container,fragmentoSeleccionado).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).addToBackStack(null).commit();
+
+            Log.d("Render ",  "Edificios");
+        }
     }
 }
