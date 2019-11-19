@@ -37,12 +37,12 @@ public class Login2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        final Net n=new Net(this);
-        checkBox=(CheckBox)findViewById(R.id.checkBox);
-        btnIngresar=(Button)findViewById(R.id.btnIngresar);
-        lblUsuario=(TextView)findViewById(R.id.lblUsuario);
-        edPass=(EditText)findViewById(R.id.input_pass);
-        recuperar=(TextView) findViewById(R.id.tvRecuperar);
+        final Net n = new Net(this);
+        checkBox = findViewById(R.id.checkBox);
+        btnIngresar = findViewById(R.id.btnIngresar);
+        lblUsuario = findViewById(R.id.lblUsuario);
+        edPass = findViewById(R.id.input_pass);
+        recuperar = findViewById(R.id.tvRecuperar);
         lblUsuario.setText("Usuario " + Usuarios.usuario);
         recuperar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +58,7 @@ public class Login2 extends AppCompatActivity {
                 {
                     if(edPass.length()==0)
                     {
-                        Toast.makeText(Login2.this, "Contraseña requerida", Toast.LENGTH_SHORT).show();
+                        edPass.setError("Contraseña requerida");
                         edPass.requestFocus();
                     }else {
                         Thread tr = new Thread() {
@@ -89,7 +89,8 @@ public class Login2 extends AppCompatActivity {
                                             startActivity(i);
                                             overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
                                         } else {
-                                            Toast.makeText(getApplicationContext(), "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                                            edPass.setError("Contraseña requerida");
+                                            edPass.requestFocus();
                                         }
                                     }
                                 });

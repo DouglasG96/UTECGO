@@ -29,21 +29,16 @@ public class PictureDetaills extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picture_detaills);
 
-
-        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbarScroll1);
+        Toolbar toolbar = findViewById(R.id.toolbarScroll1);
         setSupportActionBar(toolbar);
-        if(getSupportActionBar()!=null)
+        if(getSupportActionBar()!=null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
-
-
-        fabDetalle=(FloatingActionButton)findViewById(R.id.fabDetalle);
-        imageHeader=(ImageView)findViewById(R.id.imageHeader);
-        dependencias=(TextView)findViewById(R.id.dependencias);
-
-
+        fabDetalle = findViewById(R.id.fabDetalle);
+        imageHeader = findViewById(R.id.imageHeader);
+        dependencias = findViewById(R.id.dependencias);
         Intent intent=getIntent();
-
         final String urlImagen=intent.getStringExtra("foto");
         String depen=intent.getStringExtra("dependencias");
         final String nombre=intent.getStringExtra("nombre");

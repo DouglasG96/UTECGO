@@ -11,11 +11,18 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_settings">Configuración</string>
-    <string name="cuenta">Cuenta</string>
-    <string name="acerca_de">Acerca de ...</string>
+    <!-- Opciones del menu -->
+    <string name="opt_configuracion">Configuración</string>
+    <string name="opt_cuenta">Cuenta</string>
+    <string name="opt_acercaDe">Acerca de ...</string>
+    <string name="opt_cerrarSesion">Cerrar Sesion</string>
     <string name="title_activity_navigation">navigation</string>
+    <!-- Opciones del grupo del menu -->
+    <string name="opt_facebook">Facebook</string>
+    <string name="opt_twitter">Twitter</string>
+    <string name="opt_paginaWeb">Pagina Web</string>
+    <string name="opt_portal">Portal</string>
+
     <string name="girl_ipsum">
         Morbi posuere lorem nec elit dapibus, vitae accumsan mauris pellentesque.
         Vestibulum a lobortis mi. Vestibulum lacinia molestie semper. Pellentesque

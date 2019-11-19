@@ -1,12 +1,13 @@
-package com.jorge.utecgo.ui.edificios;
+package com.jorge.utecgo.ui.auditorios;
+
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,39 +21,27 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EdificiosFragment extends Fragment {
+public class AuditoriosFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private RecyclerView picturesRecycler;
-    private ArrayList<Picture>  pictures;
-    private  EdificiosViewModel edificiosViewModel;
+    private ArrayList<Picture> pictures;
 
     public void setLista(ArrayList<Picture> pictures)
     {
         this.pictures=pictures;
     }
-
-    public EdificiosFragment()
-    {
-        edificiosViewModel = new EdificiosViewModel();
-        pictures = edificiosViewModel.getPictures();
+    public AuditoriosFragment() {
+        // Required empty public constructor
     }
 
-    @Override
-    public String toString() {
-        return "EdificiosFragment{" +
-                "mListener=" + mListener +
-                ", picturesRecycler=" + picturesRecycler +
-                ", pictures=" + pictures +
-                ", edificiosViewModel=" + edificiosViewModel +
-                '}';
-    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_edificios, container, false);
-        picturesRecycler = view.findViewById(R.id.pictureRecycler);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_auditorios, container, false);
+        picturesRecycler= view.findViewById(R.id.pictureRecycler);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         picturesRecycler.setLayoutManager(linearLayoutManager);
@@ -71,8 +60,8 @@ public class EdificiosFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof EdificiosFragment.OnFragmentInteractionListener) {
-            mListener = (EdificiosFragment.OnFragmentInteractionListener) context;
+        if (context instanceof AuditoriosFragment.OnFragmentInteractionListener) {
+            mListener = (AuditoriosFragment.OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");

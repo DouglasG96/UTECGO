@@ -4,6 +4,21 @@
     <item
         android:id="@+id/opt_configuracion"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/opt_configuracion"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/opt_cuenta"
+        android:orderInCategory="100"
+        android:title="@string/opt_cuenta"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/opt_cerrarSesion"
+        android:orderInCategory="100"
+        android:title="@string/opt_cerrarSesion"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/opt_acercaDe"
+        android:orderInCategory="100"
+        android:title="@string/opt_acercaDe"
         app:showAsAction="never" />
 </menu>

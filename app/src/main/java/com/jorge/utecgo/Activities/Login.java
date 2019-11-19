@@ -37,9 +37,9 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         final Net n=new Net(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        final Intent viewPass=new Intent(getApplicationContext(),Login2.class);
-        btnSiguiente=(Button)findViewById(R.id.btnIngresar);
-        edUsuario=(EditText)findViewById(R.id.input_user);
+        final Intent viewPass = new Intent(getApplicationContext(),Login2.class);
+        btnSiguiente = findViewById(R.id.btnIngresar);
+        edUsuario = findViewById(R.id.input_user);
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             @Override
@@ -48,30 +48,30 @@ public class Login extends AppCompatActivity {
                 {
                     if(edUsuario.getText().toString().length()==0)
                     {
-                        Toast.makeText(getApplicationContext(), "Campo requerido", Toast.LENGTH_SHORT).show();
+                        edUsuario.setError("Campo requerido");
                         edUsuario.requestFocus();
                     }
                     else if(edUsuario.getText().toString().length()<10)
                     {
-                        Toast.makeText(getApplicationContext(), "Debes ingresar un carnet con 10 caracteres", Toast.LENGTH_SHORT).show();
-
+                        edUsuario.setError("\"Debes ingresar un carnet con 10 caracteres\"");
+                        edUsuario.requestFocus();
                     }
                     else
                     {
                         Date date = new Date();
                         String formato="yyyy";
                         SimpleDateFormat dateFormat = new SimpleDateFormat(formato);
-                        int anioActual=Integer.parseInt(dateFormat.format(date));
-                        int anioIngresado=Integer.parseInt(edUsuario.getText().toString().substring(6));
-                        int pos7=Integer.parseInt(String.valueOf(edUsuario.getText().toString().charAt(6)));
-                        int pos8=Integer.parseInt(String.valueOf(edUsuario.getText().toString().charAt(7)));
+                        int anioActual = Integer.parseInt(dateFormat.format(date));
+                        int anioIngresado = Integer.parseInt(edUsuario.getText().toString().substring(6));
+                        int pos7 = Integer.parseInt(String.valueOf(edUsuario.getText().toString().charAt(6)));
+                        int pos8 = Integer.parseInt(String.valueOf(edUsuario.getText().toString().charAt(7)));
                         if(anioIngresado<=anioActual && pos7==2 && pos8==0 )
                         {
                             Thread tr = new Thread() {
                                 @Override
                                 public void run() {
-                                    final Usuarios usuario=new Usuarios();
-                                    final String respuesta =usuario.verificarUsuario(edUsuario.getText().toString());
+                                    final Usuarios usuario = new Usuarios();
+                                    final String respuesta = usuario.verificarUsuario(edUsuario.getText().toString());
                                     Usuarios.usuario=edUsuario.getText().toString();
                                     runOnUiThread(new Runnable() {
                                         @Override

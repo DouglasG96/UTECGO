@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.jorge.utecgo.Activities.fragments.AuditoriosFragment;
+import com.jorge.utecgo.ui.auditorios.AuditoriosFragment;
 import com.jorge.utecgo.ui.edificios.EdificiosFragment;
 import com.jorge.utecgo.Activities.fragments.EnfermeriasFragment;
 import com.jorge.utecgo.R;

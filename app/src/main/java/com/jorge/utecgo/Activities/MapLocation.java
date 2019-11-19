@@ -37,44 +37,36 @@ import java.util.List;
 
 public class MapLocation extends FragmentActivity implements OnMapReadyCallback,DirectionFinderListener {
 
-        private GoogleMap mMap;
-        private List<Marker> originMarkers = new ArrayList<>();
-        private List<Marker> destinationMarkers = new ArrayList<>();
-        private List<Polyline> polylinePaths = new ArrayList<>();
-        private ProgressDialog progressDialog;
-        private Marker marcadorDestino;
-        private ImageView imagenMarker;
+    private GoogleMap mMap;
+    private List<Marker> originMarkers = new ArrayList<>();
+    private List<Marker> destinationMarkers = new ArrayList<>();
+    private List<Polyline> polylinePaths = new ArrayList<>();
+    private ProgressDialog progressDialog;
+    private Marker marcadorDestino;
+    private ImageView imagenMarker;
 
+    Location location;
 
-        Location location;
+    //Valores de destino
+    private double latDestino=0.0;
+    private double lngDestino=0.0;
+    String nombreDestino="";
+    String url="";
 
+    //Valores del usuario
+    private double latUsuario=0.0;
+    private double lngUsuario=0.0;
 
-        //Valores de destino
-        private double latDestino=0.0;
-        private double lngDestino=0.0;
-        String nombreDestino="";
-        String url="";
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_map_location);
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 
-
-        //Valores del usuario
-        private double latUsuario=0.0;
-        private double lngUsuario=0.0;
-
-
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_map_location);
-            // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                    .findFragmentById(R.id.map);
-            mapFragment.getMapAsync(this);
-
-
-
-        }
-
+    }
 
     private void sendRequest() {
             String origin = latUsuario+","+lngUsuario;
@@ -87,19 +79,15 @@ public class MapLocation extends FragmentActivity implements OnMapReadyCallback,
             }
         }
 
-
         @Override
         public void onMapReady(GoogleMap googleMap) {
             mMap = googleMap;
-
             mMap.setInfoWindowAdapter(new WindowAdapter(MapLocation.this));
-
             Intent anterior=getIntent();
             latDestino=Double.parseDouble(anterior.getStringExtra("latitud"));
             lngDestino=Double.parseDouble(anterior.getStringExtra("longitud"));
             nombreDestino=anterior.getStringExtra("nombre");
             url=anterior.getStringExtra("foto");
-
 
             //Obteniendo la ubicacion actual de el usuario
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -111,15 +99,8 @@ public class MapLocation extends FragmentActivity implements OnMapReadyCallback,
             latUsuario=location.getLatitude();
             lngUsuario=location.getLongitude();
 
-
-
             sendRequest();
-
-
-
-
         }
-
 
         @Override
         public void onDirectionFinderStart() {
@@ -143,8 +124,6 @@ public class MapLocation extends FragmentActivity implements OnMapReadyCallback,
                     polyline.remove();
                 }
             }
-
-
         }
 
         @Override
@@ -153,8 +132,6 @@ public class MapLocation extends FragmentActivity implements OnMapReadyCallback,
             polylinePaths = new ArrayList<>();
             originMarkers = new ArrayList<>();
             destinationMarkers = new ArrayList<>();
-
-
 
             for (Route route : routes) {
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(route.startLocation, 16));
@@ -166,7 +143,6 @@ public class MapLocation extends FragmentActivity implements OnMapReadyCallback,
                         .title(route.startAddress)
                         .position(route.startLocation)
                         )
-
                 );
 
                 marcadorDestino=mMap.addMarker(new MarkerOptions()
@@ -176,11 +152,7 @@ public class MapLocation extends FragmentActivity implements OnMapReadyCallback,
                         .snippet(url)
                 );
 
-
                 destinationMarkers.add(marcadorDestino);
-
-
-
 
                 PolylineOptions polylineOptions = new PolylineOptions().
                         geodesic(true).
@@ -194,4 +166,3 @@ public class MapLocation extends FragmentActivity implements OnMapReadyCallback,
             }
         }
 }
-

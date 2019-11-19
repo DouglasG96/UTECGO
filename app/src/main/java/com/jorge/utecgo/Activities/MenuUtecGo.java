@@ -20,25 +20,22 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.jorge.utecgo.Activities.fragments.AuditoriosFragment;
+import com.jorge.utecgo.ui.bibliotecas.BibliotecasFragment;
+import com.jorge.utecgo.ui.auditorios.AuditoriosFragment;
 import com.jorge.utecgo.model.Lugares;
 import com.jorge.utecgo.model.Picture;
 import com.jorge.utecgo.ui.edificios.EdificiosFragment;
-import com.jorge.utecgo.Activities.fragments.EnfermeriasFragment;
 import com.jorge.utecgo.Activities.fragments.GmapFragment;
 import com.jorge.utecgo.ui.laboratorios.LaboratoriosFragment;
-import com.jorge.utecgo.Prueba;
 import com.jorge.utecgo.R;
-import com.jorge.utecgo.ui.home.HomeFragment;
- 
+
 import java.util.ArrayList;
 
 public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-        Prueba.OnFragmentInteractionListener,
-        AuditoriosFragment.OnFragmentInteractionListener,
-        EnfermeriasFragment.OnFragmentInteractionListener,
         EdificiosFragment.OnFragmentInteractionListener,
         LaboratoriosFragment.OnFragmentInteractionListener,
+        AuditoriosFragment.OnFragmentInteractionListener,
+        BibliotecasFragment.OnFragmentInteractionListener,
         GmapFragment.OnFragmentInteractionListener {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -111,49 +108,33 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         boolean fragmentSeleccionado = false;
         int id = item.getItemId();
         String banderaAsyncTask = "";
-        if (id == R.id.nav_auditorios)
+        if (id == R.id.nav_edificios)
         {
-            Log.i("msg","Auditorios");
-            fragmentoSeleccionado = new AuditoriosFragment();
+            banderaAsyncTask = "1";
+            fragmentoSeleccionado = new EdificiosFragment();
             fragmentSeleccionado = true;
-        }
-        if (id == R.id.nav_enfermerias)
-        {
-            Log.i("msg","Enfermerias");
-            fragmentoSeleccionado = new AuditoriosFragment();
-            fragmentSeleccionado = true;
-        }
-        else if (id == R.id.nav_cuenta)
-        {
-            Log.i("msg","Cuenta");
         }
         else if (id == R.id.nav_laboratorios)
         {
             banderaAsyncTask = "2";
             fragmentoSeleccionado = new LaboratoriosFragment();
             fragmentSeleccionado = true;
-            Log.i("msg","Laboratorios");
         }
-        else if (id == R.id.nav_edificios)
+        else if (id == R.id.nav_auditorios)
         {
-            banderaAsyncTask = "1";
-            fragmentoSeleccionado = new EdificiosFragment();
+            banderaAsyncTask = "3";
+            fragmentoSeleccionado = new AuditoriosFragment();
             fragmentSeleccionado = true;
         }
         else if (id == R.id.nav_bibliotecas)
         {
-            Log.i("msg","bibliotecas");
-        }
-        else if (id == R.id.nav_prueba)
-        {
-            Log.i("msg","Prueba");
-            fragmentoSeleccionado = new Prueba();
+            banderaAsyncTask = "4";
+            fragmentoSeleccionado = new EdificiosFragment();
             fragmentSeleccionado = true;
         }
 
         if(fragmentSeleccionado)
         {
-
             item.setChecked(true);
             getSupportActionBar().setTitle(item.getTitle());
             MyAsyncTask myAsyncTask= new MyAsyncTask(banderaAsyncTask);
@@ -194,24 +175,27 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
 
             switch(tipo){
                 case "1":
-                    EdificiosFragment fragmentEdif=new EdificiosFragment();
+                    EdificiosFragment fragmentEdif = new EdificiosFragment();
                     fragmentEdif.setLista(result);
                     getSupportFragmentManager().beginTransaction().replace(R.id.content_main,fragmentEdif).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).addToBackStack(null).commit();
                     break;
                 case "2":
-                    LaboratoriosFragment fragmentLab=new LaboratoriosFragment();
+                    LaboratoriosFragment fragmentLab = new LaboratoriosFragment();
                     fragmentLab.setLista(result);
                     getSupportFragmentManager().beginTransaction().replace(R.id.content_main,fragmentLab).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).addToBackStack(null).commit();
                     break;
                 case "3":
+                    AuditoriosFragment auditoriosFragment = new AuditoriosFragment();
+                    auditoriosFragment.setLista(result);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.content_main,auditoriosFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).addToBackStack(null).commit();
                     break;
                 case "4":
+                    BibliotecasFragment bibliotecasFragment = new BibliotecasFragment();
+                    bibliotecasFragment.setLista(result);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.content_main,bibliotecasFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).addToBackStack(null).commit();
                     break;
             }
-
-
             //getSupportFragmentManager().beginTransaction().replace(R.id.container,fragmentoSeleccionado).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).addToBackStack(null).commit();
-
             Log.d("Render ",  "Edificios");
         }
     }

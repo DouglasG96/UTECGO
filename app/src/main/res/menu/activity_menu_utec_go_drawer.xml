@@ -5,51 +5,40 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_auditorios"
-            android:icon="@drawable/ic_clock"
-            android:title="Auditorios" />
-        <item
-            android:id="@+id/nav_enfermerias"
-            android:icon="@drawable/ic_clock"
-            android:title="Enfermerias"/>
-        <item
-            android:id="@+id/nav_cuenta"
-            android:icon="@drawable/ic_user2"
-            android:title="Cuenta" />
+            android:id="@+id/nav_edificios"
+            android:icon="@drawable/ic_places"
+            android:title="Edificios" />
         <item
             android:id="@+id/nav_laboratorios"
             android:icon="@drawable/ic_laboratorios"
             android:title="Laboratorios" />
         <item
-            android:id="@+id/nav_edificios"
-            android:icon="@drawable/ic_places"
-            android:title="Edificios" />
+            android:id="@+id/nav_auditorios"
+            android:icon="@drawable/ic_auditorios"
+            android:title="Auditorios" />
         <item
             android:id="@+id/nav_bibliotecas"
-            android:icon="@drawable/ic_clock"
+            android:icon="@drawable/ic_bibliotecas"
             android:title="Bibliotecas" />
-        <item
-            android:id="@+id/nav_museos"
-            android:icon="@drawable/ic_clock"
-            android:title="Museos" />
-        <item
-            android:id="@+id/nav_prueba"
-            android:icon="@drawable/ic_clock"
-            android:title="Prueba" />
     </group>
-    <!--
-    <item android:title="Communicate">
+    <item android:title="Redes Sociales">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
+                android:id="@+id/nav_facebook"
+                android:icon="@drawable/ic_faebook"
+                android:title="@string/opt_facebook" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
+                android:id="@+id/nav_twitter"
+                android:icon="@drawable/ic_twitter"
+                android:title="@string/opt_twitter" />
+            <item
+                android:id="@+id/nav_paginaWeb"
+                android:icon="@drawable/ic_paginaweb"
+                android:title="@string/opt_paginaWeb" />
+            <item
+                android:id="@+id/nav_portal"
+                android:icon="@drawable/ic_portal"
+                android:title="@string/opt_portal" />
         </menu>
     </item>
-        -->
-
 </menu>
