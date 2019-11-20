@@ -1,5 +1,9 @@
 package com.jorge.utecgo.Activities;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,6 +17,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.navigation.NavController;
@@ -39,8 +45,11 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         GmapFragment.OnFragmentInteractionListener {
 
     private AppBarConfiguration mAppBarConfiguration;
-
     private Fragment fragmentoSeleccionado;
+    private TextView email;
+    private Drawable nav_header_menu_utec_go;
+    private String usuario = "";
+    private String labelUsuario= "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +57,13 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         setContentView(R.layout.activity_menu_utec_go);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        usuario = getIntent().getStringExtra("usuario");
+        labelUsuario = usuario+"@mail.utec.edu.sv";
+        Log.i("user",labelUsuario);
         /*
+        email = findViewById(R.id.email);
+        email.setText(labelUsuario);
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,14 +106,55 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
                 || super.onSupportNavigateUp();
     }
 
-    public boolean onOptionItemSelected(MenuItem item)
-    {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.opt_configuracion) {
-           Toast.makeText(this,"Aqui van las configuracione o preferencias", Toast.LENGTH_SHORT).show();
-           return true;
+            Log.i("perefencia", "configuracion");
+            cargarConfiguraciones();
+            return true;
+        }
+        else if(id == R.id.opt_cuenta)
+        {
+            Log.i("perefencia", "Cuenta");
+            cargarCuenta();
+            return true;
+        }
+        else if(id == R.id.opt_acercaDe)
+        {
+            Log.i("perefencia", "Acerca de");
+            acercaDe();
+            return true;
+        }
+        else if(id == R.id.opt_cerrarSesion)
+        {
+            Log.i("perefencia","Cerrar sesion");
+            cerrarSesion();
+            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void acercaDe() {
+        Toast.makeText(this,"Acerca De...",Toast.LENGTH_LONG).show();
+    }
+
+    private void cargarCuenta() {
+        Toast.makeText(this,"Cuenta",Toast.LENGTH_LONG).show();
+    }
+
+    private void cerrarSesion() {
+        SharedPreferences preferenciasUsuarios=getSharedPreferences("preferenciasUsuarios",MODE_PRIVATE);
+        SharedPreferences.Editor editor=preferenciasUsuarios.edit();
+        editor.putString("usuario_key",null);
+        editor.putString("pass_key",null);
+        editor.commit();
+        Intent intent = new Intent(this,MenuInicio.class);
+        startActivity(intent);
+    }
+
+    private void cargarConfiguraciones() {
+        Toast.makeText(this,"Configuraciones",Toast.LENGTH_LONG).show();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

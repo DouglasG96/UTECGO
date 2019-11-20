@@ -27,7 +27,7 @@ public class MenuInicio extends AppCompatActivity {
 
         btnRegistro = findViewById(R.id.btnRegistro);
         btnIngresar = findViewById(R.id.btnIngresar);
-        btnExterno = findViewById(R.id.btnExterno);
+        //btnExterno = findViewById(R.id.btnExterno);
         btnImg = findViewById(R.id.btnImg);
 
         final Intent vIngreso=new Intent(getApplicationContext(),Login.class);
@@ -67,13 +67,13 @@ public class MenuInicio extends AppCompatActivity {
                 overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
             }
         });
-
+        /*
         btnExterno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                startActivity(vNavigation);
             }
         });
-
+        */
     }
 }

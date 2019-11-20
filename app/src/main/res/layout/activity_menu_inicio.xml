@@ -92,15 +92,11 @@
                 android:layout_height="wrap_content"
                 android:textColor="#6a6464"
                 android:text="No tienes una cuenta aun? "
-
                 />
 
         </LinearLayout>
 
-
-
         <Button
-
             android:layout_width="193dp"
             android:layout_height="wrap_content"
             android:text="Registrarse"
@@ -114,9 +110,8 @@
             android:layout_gravity="center_horizontal"
             android:background="@color/white" />
 
-
+<!--
         <Button
-
             android:layout_width="193dp"
             android:layout_height="wrap_content"
             android:text="Externos"
@@ -129,7 +124,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
             android:background="@color/green" />
-
+-->
 
 
     </LinearLayout>

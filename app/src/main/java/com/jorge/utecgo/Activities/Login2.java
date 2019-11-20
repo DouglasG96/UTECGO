@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -86,10 +87,12 @@ public class Login2 extends AppCompatActivity {
                                                 editor.putString("pass_key",null);
                                                 editor.commit();
                                             }
+                                            i.putExtra("usuario", Usuarios.usuario);
                                             startActivity(i);
                                             overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
                                         } else {
-                                            edPass.setError("Contraseña requerida");
+                                            edPass.setError("Contraseña Incorrecta");
+                                            edPass.setText("");
                                             edPass.requestFocus();
                                         }
                                     }

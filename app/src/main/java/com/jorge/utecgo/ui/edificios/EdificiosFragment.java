@@ -54,7 +54,7 @@ public class EdificiosFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_edificios, container, false);
         picturesRecycler = view.findViewById(R.id.pictureRecycler);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        //linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         picturesRecycler.setLayoutManager(linearLayoutManager);
         PictureAdapterRecyclerView pictureAdapterRecyclerView = new PictureAdapterRecyclerView(pictures,R.layout.cardview,getActivity());
         picturesRecycler.setAdapter(pictureAdapterRecyclerView);
