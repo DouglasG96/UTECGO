@@ -19,7 +19,8 @@
         <activity
             android:name=".Activities.MenuUtecGo"
             android:label="@string/title_activity_menu_utec_go"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="screenSize|orientation">
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
