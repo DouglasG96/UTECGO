@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class PictureAdapterRecyclerView extends RecyclerView.Adapter<PictureAdapterRecyclerView.PictureViewHolder>{
 
-    private ArrayList<Picture> pictures;
+    private ArrayList<Picture> pictures = null;
     private int resource;
     private Activity activity;
 
@@ -39,7 +39,7 @@ public class PictureAdapterRecyclerView extends RecyclerView.Adapter<PictureAdap
     @Override
     public PictureViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view= LayoutInflater.from(parent.getContext()).inflate(resource,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(resource,parent,false);
         return new PictureViewHolder(view);
     }
 
@@ -55,7 +55,7 @@ public class PictureAdapterRecyclerView extends RecyclerView.Adapter<PictureAdap
             @Override
             public void onClick(View v) {
 
-                Intent i=new Intent(activity, PictureDetaills.class);
+                Intent i = new Intent(activity, PictureDetaills.class);
                 i.putExtra("nombre",picture.getNombreEdificio());
                 i.putExtra("dependencias",picture.getDependencias());
                 i.putExtra("foto",picture.getPicture());

@@ -35,9 +35,7 @@ public class LaboratoriosFragment extends Fragment {
     public void setLista(ArrayList<Picture> pictures)
     {
         this.pictures=pictures;
-
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,16 +43,13 @@ public class LaboratoriosFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_laboratorios, container, false);
 
-        picturesRecycler=(RecyclerView)view.findViewById(R.id.pictureRecycler);
+        picturesRecycler = view.findViewById(R.id.pictureRecycler);
 
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        //linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         picturesRecycler.setLayoutManager(linearLayoutManager);
-
-        PictureAdapterRecyclerView pictureAdapterRecyclerView=new PictureAdapterRecyclerView(pictures,R.layout.cardview,getActivity());
-
+        PictureAdapterRecyclerView pictureAdapterRecyclerView = new PictureAdapterRecyclerView(pictures,R.layout.cardview,getActivity());
         picturesRecycler.setAdapter(pictureAdapterRecyclerView);
-
         return view;
     }
 

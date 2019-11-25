@@ -53,7 +53,8 @@ public class Login extends AppCompatActivity {
                     }
                     else if(edUsuario.getText().toString().length()<10)
                     {
-                        edUsuario.setError("\"Debes ingresar un carnet con 10 caracteres\"");
+                        edUsuario.setError("Debes ingresar un carnet con 10 caracteres");
+                        edUsuario.setText("");
                         edUsuario.requestFocus();
                     }
                     else
