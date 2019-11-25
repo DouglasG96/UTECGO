@@ -29,8 +29,10 @@ public class PictureDetaills extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picture_detaills);
 
+
         Toolbar toolbar = findViewById(R.id.toolbarScroll1);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if(getSupportActionBar()!=null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
@@ -68,9 +70,12 @@ public class PictureDetaills extends AppCompatActivity {
 
             }
         });
+    }
 
 
-
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
