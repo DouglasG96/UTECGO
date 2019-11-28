@@ -88,6 +88,10 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+
+        FragmentManager fm =  getSupportFragmentManager();
+        GmapFragment gmapFragment =  new GmapFragment();
+        fm.beginTransaction().replace(R.id.content_main,  gmapFragment ).commit();
         /*
             NavigationUI.setupWithNavController(navigationView, navController);
          */
@@ -185,16 +189,17 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         }
         else if (id == R.id.nav_bibliotecas)
         {
-            /*
+
             banderaAsyncTask = "4";
             fragmentoSeleccionado = new EdificiosFragment();
             fragmentSeleccionado = true;
-             */
-            FragmentManager fm =  getSupportFragmentManager();
 
-            //fm.beginTransaction().replace(R.id.fragemnt)
+            /*
+            FragmentManager fm =  getSupportFragmentManager();
             GmapFragment gmapFragment =  new GmapFragment();
             fm.beginTransaction().replace(R.id.content_main,  gmapFragment ).commit();
+
+             */
         }
 
         if(fragmentSeleccionado)

@@ -166,7 +166,7 @@ public class GmapFragment extends Fragment implements OnMapReadyCallback {
 
 
 
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(benito_juarez , 16));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(fundadores , 18));
         googleMap.setBuildingsEnabled(true);
     }
 
