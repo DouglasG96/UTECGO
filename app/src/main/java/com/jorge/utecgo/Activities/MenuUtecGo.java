@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -184,9 +185,16 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         }
         else if (id == R.id.nav_bibliotecas)
         {
+            /*
             banderaAsyncTask = "4";
             fragmentoSeleccionado = new EdificiosFragment();
             fragmentSeleccionado = true;
+             */
+            FragmentManager fm =  getSupportFragmentManager();
+
+            //fm.beginTransaction().replace(R.id.fragemnt)
+            GmapFragment gmapFragment =  new GmapFragment();
+            fm.beginTransaction().replace(R.id.content_main,  gmapFragment ).commit();
         }
 
         if(fragmentSeleccionado)

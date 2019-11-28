@@ -72,6 +72,9 @@
         <activity android:name=".Activities.Recuperar_contrasena" />
         <activity android:name=".Activities.Detalles" />
         <activity android:name=".Activities.Detalles1" />
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
     </application>
+
+
 
 </manifest>
