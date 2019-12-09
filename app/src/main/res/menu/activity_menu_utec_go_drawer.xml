@@ -5,40 +5,64 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/ic_inicio"
+            android:title="@string/opt_inicio" />
+        <item
             android:id="@+id/nav_edificios"
             android:icon="@drawable/ic_places"
-            android:title="Edificios" />
+            android:title="@string/opt_edificios" />
         <item
             android:id="@+id/nav_laboratorios"
             android:icon="@drawable/ic_laboratorios"
-            android:title="Laboratorios" />
+            android:title="@string/opt_laboratorios" />
         <item
             android:id="@+id/nav_auditorios"
             android:icon="@drawable/ic_auditorios"
-            android:title="Auditorios" />
+            android:title="@string/opt_auditorios" />
         <item
             android:id="@+id/nav_bibliotecas"
             android:icon="@drawable/ic_bibliotecas"
-            android:title="Bibliotecas" />
+            android:title="@string/opt_bibliotecas" />
+
+        <item android:title="Preferencias">
+            <menu>
+                <item
+                    android:id="@+id/nav_configuracion"
+                    android:icon="@drawable/ic_configuracion"
+                    android:title="@string/opt_configuracion" />
+                <item
+                    android:id="@+id/nav_cuenta"
+                    android:icon="@drawable/ic_cuenta"
+                    android:title="@string/opt_cuenta" />
+                <item
+                    android:id="@+id/nav_acercaDe"
+                    android:icon="@drawable/ic_acercade"
+                    android:title="@string/opt_acercaDe" />
+                <item
+                    android:id="@+id/nav_cerrarSesion"
+                    android:icon="@drawable/ic_cerrarsesion"
+                    android:title="@string/opt_cerrarSesion" />
+            </menu>
+        </item>
+
+        <!--
+        <item
+            android:id="@+id/nav_facebook"
+            android:icon="@drawable/ic_faebook"
+            android:title="@string/opt_facebook" />
+        <item
+            android:id="@+id/nav_twitter"
+            android:icon="@drawable/ic_twitter"
+            android:title="@string/opt_twitter" />
+        <item
+            android:id="@+id/nav_paginaWeb"
+            android:icon="@drawable/ic_paginaweb"
+            android:title="@string/opt_paginaWeb" />
+        <item
+            android:id="@+id/nav_portal"
+            android:icon="@drawable/ic_portal"
+            android:title="@string/opt_portal" />
+            -->
     </group>
-    <item android:title="Redes Sociales">
-        <menu>
-            <item
-                android:id="@+id/nav_facebook"
-                android:icon="@drawable/ic_faebook"
-                android:title="@string/opt_facebook" />
-            <item
-                android:id="@+id/nav_twitter"
-                android:icon="@drawable/ic_twitter"
-                android:title="@string/opt_twitter" />
-            <item
-                android:id="@+id/nav_paginaWeb"
-                android:icon="@drawable/ic_paginaweb"
-                android:title="@string/opt_paginaWeb" />
-            <item
-                android:id="@+id/nav_portal"
-                android:icon="@drawable/ic_portal"
-                android:title="@string/opt_portal" />
-        </menu>
-    </item>
 </menu>

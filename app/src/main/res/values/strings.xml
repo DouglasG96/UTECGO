@@ -17,6 +17,14 @@
     <string name="opt_acercaDe">Acerca de ...</string>
     <string name="opt_cerrarSesion">Cerrar Sesion</string>
     <string name="title_activity_navigation">navigation</string>
+
+    <!-- Opciones del grupo del menu -->
+    <string name="opt_inicio">Inicio</string>
+    <string name="opt_edificios">Edificios</string>
+    <string name="opt_laboratorios">Laboratorios</string>
+    <string name="opt_auditorios">Auditorios</string>
+    <string name="opt_bibliotecas">Bibliotecas</string>
+
     <!-- Opciones del grupo del menu -->
     <string name="opt_facebook">Facebook</string>
     <string name="opt_twitter">Twitter</string>
@@ -32,11 +40,11 @@
         libero in purus. Phasellus tempus gravida tempor.
     </string>
     <string name="title_activity_menu_utec_go">MenuUtecGo</string>
-    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_title">UTEC GO</string>
     <string name="emailUsuario">1752052015@mail.utec.edu.sv</string>
     <string name="nav_header_desc">Navigation header</string>
 
-    <string name="menu_home">Home</string>
+    <string name="menu_home">Inicio</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_tools">Tools</string>

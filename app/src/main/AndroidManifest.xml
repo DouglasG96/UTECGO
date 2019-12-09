@@ -16,11 +16,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AcercaDe"></activity>
+        <activity android:name=".Cuenta" />
+        <activity android:name=".Configuracion" />
         <activity
             android:name=".Activities.MenuUtecGo"
+            android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_menu_utec_go"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="screenSize|orientation">
+            android:theme="@style/AppTheme.NoActionBar">
+
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,8 +49,7 @@
         <activity android:name=".Activities.RegistroClave" />
         <activity
             android:name=".Activities.ContenedorActivity"
-            android:configChanges="screenSize|orientation">
-        </activity>
+            android:configChanges="screenSize|orientation" />
         <activity android:name=".Activities.PictureDetaills" />
         <activity android:name=".Activities.PerfilUsuario" />
         <!--
@@ -67,14 +70,14 @@
         <activity
             android:name=".Activities.navigation"
             android:label="@string/title_activity_navigation"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.Recuperar_contrasena" />
         <activity android:name=".Activities.Detalles" />
         <activity android:name=".Activities.Detalles1" />
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
     </application>
-
-
 
 </manifest>

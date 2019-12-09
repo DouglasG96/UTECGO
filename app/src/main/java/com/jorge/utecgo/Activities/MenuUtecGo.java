@@ -27,6 +27,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.jorge.utecgo.Facebook;
 import com.jorge.utecgo.ui.bibliotecas.BibliotecasFragment;
 import com.jorge.utecgo.ui.auditorios.AuditoriosFragment;
 import com.jorge.utecgo.model.Lugares;
@@ -43,6 +44,7 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         LaboratoriosFragment.OnFragmentInteractionListener,
         AuditoriosFragment.OnFragmentInteractionListener,
         BibliotecasFragment.OnFragmentInteractionListener,
+        Facebook.OnFragmentInteractionListener,
         GmapFragment.OnFragmentInteractionListener {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -169,7 +171,11 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         boolean fragmentSeleccionado = false;
         int id = item.getItemId();
         String banderaAsyncTask = "";
-        if (id == R.id.nav_edificios)
+        if (id == R.id.nav_inicio)
+        {
+
+        }
+        else if (id == R.id.nav_edificios)
         {
             banderaAsyncTask = "1";
             fragmentoSeleccionado = new EdificiosFragment();
@@ -193,14 +199,43 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
             banderaAsyncTask = "4";
             fragmentoSeleccionado = new EdificiosFragment();
             fragmentSeleccionado = true;
-
-            /*
-            FragmentManager fm =  getSupportFragmentManager();
-            GmapFragment gmapFragment =  new GmapFragment();
-            fm.beginTransaction().replace(R.id.content_main,  gmapFragment ).commit();
-
-             */
         }
+        else if(id == R.id.nav_configuracion)
+        {
+
+        }
+        else if(id == R.id.nav_cuenta)
+        {
+
+        }
+        else if(id == R.id.nav_acercaDe)
+        {
+
+        }
+        else if(id == R.id.nav_cerrarSesion)
+        {
+
+        }
+        /*
+        else if (id == R.id.nav_facebook)
+        {
+            fragmentSeleccionado = true;
+            fragmentoSeleccionado = new Facebook();
+        }
+        else if (id == R.id.nav_twitter)
+        {
+            fragmentSeleccionado = true;
+        }
+        else if (id == R.id.nav_paginaWeb)
+        {
+            fragmentSeleccionado = true;
+        }
+        else if (id == R.id.nav_portal)
+        {
+            fragmentSeleccionado = true;
+        }
+
+         */
 
         if(fragmentSeleccionado)
         {
@@ -265,7 +300,6 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
                     break;
             }
             //getSupportFragmentManager().beginTransaction().replace(R.id.container,fragmentoSeleccionado).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).addToBackStack(null).commit();
-            Log.d("Render ",  "Edificios");
         }
     }
 }
