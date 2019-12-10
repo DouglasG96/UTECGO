@@ -31,6 +31,24 @@
     <string name="opt_paginaWeb">Pagina Web</string>
     <string name="opt_portal">Portal</string>
 
+    <!-- Informacion de desarrollo -->
+    <string name="infoNombre">
+        Desarrollado por:
+
+
+        Douglas Ricardo Guzmán Barahona
+    </string>
+
+    <string name="infoCarnet">
+        Carnet:
+        17-52052-2015
+    </string>
+
+    <string name="infoCarrera">
+        Carrera:
+        Licenciatura en informática
+    </string>
+
     <string name="girl_ipsum">
         Morbi posuere lorem nec elit dapibus, vitae accumsan mauris pellentesque.
         Vestibulum a lobortis mi. Vestibulum lacinia molestie semper. Pellentesque

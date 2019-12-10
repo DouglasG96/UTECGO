@@ -120,25 +120,16 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.opt_configuracion) {
-            Log.i("perefencia", "configuracion");
             cargarConfiguraciones();
-            return true;
-        }
-        else if(id == R.id.opt_cuenta)
-        {
-            Log.i("perefencia", "Cuenta");
-            cargarCuenta();
             return true;
         }
         else if(id == R.id.opt_acercaDe)
         {
-            Log.i("perefencia", "Acerca de");
             acercaDe();
             return true;
         }
         else if(id == R.id.opt_cerrarSesion)
         {
-            Log.i("perefencia","Cerrar sesion");
             cerrarSesion();
             return true;
         }
@@ -146,7 +137,8 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
     }
 
     private void acercaDe() {
-        Toast.makeText(this,"Acerca De...",Toast.LENGTH_LONG).show();
+        Intent i=new Intent(getApplicationContext(), AcercaDe.class);
+        startActivity(i);
     }
 
     private void cargarCuenta() {
@@ -207,11 +199,6 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         else if(id == R.id.nav_configuracion)
         {
             Intent i=new Intent(getApplicationContext(), Configuracion.class);
-            startActivity(i);
-        }
-        else if(id == R.id.nav_cuenta)
-        {
-            Intent i=new Intent(getApplicationContext(), Cuenta.class);
             startActivity(i);
         }
         else if(id == R.id.nav_acercaDe)
