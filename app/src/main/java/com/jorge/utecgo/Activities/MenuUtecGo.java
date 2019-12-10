@@ -68,7 +68,6 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         setSupportActionBar(toolbar);
         usuario = getIntent().getStringExtra("usuario");
         labelUsuario = usuario+"@mail.utec.edu.sv";
-        Log.i("user",labelUsuario);
         /*
         email = findViewById(R.id.email);
         email.setText(labelUsuario);
@@ -86,9 +85,6 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
-
-
-
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -111,19 +107,12 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-
-
-
         getMenuInflater().inflate(R.menu.menu_utec_go, menu);
         return true;
     }
 
     @Override
     public boolean onSupportNavigateUp() {
-
-
-
-
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
@@ -151,8 +140,6 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
 
         int id = item.getItemId();
         if (id == R.id.opt_configuracion) {
-            Intent intent =  new Intent(this , Configuracion.class);
-            startActivity(intent);
             cargarConfiguraciones();
             return true;
         }
@@ -174,10 +161,6 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         startActivity(i);
     }
 
-    private void cargarCuenta() {
-        Toast.makeText(this,"Cuenta",Toast.LENGTH_LONG).show();
-    }
-
     private void cerrarSesion() {
         SharedPreferences preferenciasUsuarios=getSharedPreferences("preferenciasUsuarios",MODE_PRIVATE);
         SharedPreferences.Editor editor=preferenciasUsuarios.edit();
@@ -189,7 +172,8 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
     }
 
     private void cargarConfiguraciones() {
-        Toast.makeText(this,"Configuraciones",Toast.LENGTH_LONG).show();
+        Intent intent =  new Intent(this , Configuracion.class);
+        startActivity(intent);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -228,51 +212,22 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         }
         else if (id == R.id.nav_bibliotecas)
         {
-
             banderaAsyncTask = "4";
             fragmentoSeleccionado = new EdificiosFragment();
             fragmentSeleccionado = true;
         }
         else if(id == R.id.nav_configuracion)
         {
-            Intent intent =  new Intent(this , Configuracion.class);
-            startActivity(intent);
-
-        }
-        else if(id == R.id.nav_cuenta)
-        {
-
-            Intent i=new Intent(getApplicationContext(), Configuracion.class);
-            startActivity(i);
+            cargarConfiguraciones();
         }
         else if(id == R.id.nav_acercaDe)
         {
-            Intent i=new Intent(getApplicationContext(), AcercaDe.class);
-            startActivity(i);
+            acercaDe();
         }
         else if(id == R.id.nav_cerrarSesion)
         {
-
+            cerrarSesion();
         }
-        /*
-        else if (id == R.id.nav_facebook)
-        {
-            fragmentSeleccionado = true;
-            fragmentoSeleccionado = new Facebook();
-        }
-        else if (id == R.id.nav_twitter)
-        {
-            fragmentSeleccionado = true;
-        }
-        else if (id == R.id.nav_paginaWeb)
-        {
-            fragmentSeleccionado = true;
-        }
-        else if (id == R.id.nav_portal)
-        {
-            fragmentSeleccionado = true;
-        }
-         */
 
         if(fragmentSeleccionado)
         {

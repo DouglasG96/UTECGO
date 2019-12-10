@@ -17,6 +17,10 @@ public class AcercaDe extends AppCompatActivity {
         if(getSupportActionBar()!=null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+
+        toolbar.setTitle("Acerca de...");
+        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
+        setSupportActionBar(toolbar);
     }
 
     @Override
