@@ -3,6 +3,8 @@ package com.jorge.utecgo.Activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -27,6 +29,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.jorge.utecgo.Configuracion;
 import com.jorge.utecgo.Facebook;
 import com.jorge.utecgo.ui.bibliotecas.BibliotecasFragment;
 import com.jorge.utecgo.ui.auditorios.AuditoriosFragment;
@@ -81,6 +84,9 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
 
+
+
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -102,12 +108,19 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+
+
+
         getMenuInflater().inflate(R.menu.menu_utec_go, menu);
         return true;
     }
 
     @Override
     public boolean onSupportNavigateUp() {
+
+
+
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
@@ -115,10 +128,28 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        /*preferencias de color*/
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        SharedPreferences preferenciasUsuarios=getSharedPreferences("preferenciasUsuarios",MODE_PRIVATE);
+
+        String color = preferenciasUsuarios.getString("nav_color" , null);
+
+        if(color!=null){
+            navigationView.setBackgroundColor( getResources().getColor( R.color.black )  );
+            navigationView.setItemTextColor(ColorStateList.valueOf(Color.WHITE));
+            navigationView.setItemIconTintList(  ColorStateList.valueOf(Color.WHITE ));
+        }else{
+            navigationView.setBackgroundColor( getResources().getColor( R.color.white )  );
+            navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK ));
+            navigationView.setItemIconTintList(  ColorStateList.valueOf(Color.BLACK ));
+        }
+        /*preferencias de color*/
+
         int id = item.getItemId();
         if (id == R.id.opt_configuracion) {
-            Log.i("perefencia", "configuracion");
-            cargarConfiguraciones();
+            Intent intent =  new Intent(this , Configuracion.class);
+            startActivity(intent);
             return true;
         }
         else if(id == R.id.opt_cuenta)
@@ -173,6 +204,9 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         String banderaAsyncTask = "";
         if (id == R.id.nav_inicio)
         {
+            FragmentManager fm =  getSupportFragmentManager();
+            GmapFragment gmapFragment =  new GmapFragment();
+            fm.beginTransaction().replace(R.id.content_main,  gmapFragment ).commit();
 
         }
         else if (id == R.id.nav_edificios)
@@ -202,6 +236,8 @@ public class MenuUtecGo extends AppCompatActivity implements NavigationView.OnNa
         }
         else if(id == R.id.nav_configuracion)
         {
+            Intent intent =  new Intent(this , Configuracion.class);
+            startActivity(intent);
 
         }
         else if(id == R.id.nav_cuenta)

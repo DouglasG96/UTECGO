@@ -6,4 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".Configuracion">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar2"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selecciona para cambiar a un tema oscuro"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            ></TextView>
+
+        <Switch
+            android:id="@+id/switch_thema"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="Tema Oscuro" />
+
+
+    </LinearLayout>
+
+
+
+
 </android.support.constraint.ConstraintLayout>
