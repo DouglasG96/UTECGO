@@ -32,10 +32,6 @@
                     android:icon="@drawable/ic_configuracion"
                     android:title="@string/opt_configuracion" />
                 <item
-                    android:id="@+id/nav_cuenta"
-                    android:icon="@drawable/ic_cuenta"
-                    android:title="@string/opt_cuenta" />
-                <item
                     android:id="@+id/nav_acercaDe"
                     android:icon="@drawable/ic_acercade"
                     android:title="@string/opt_acercaDe" />

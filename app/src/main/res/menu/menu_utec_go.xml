@@ -7,11 +7,6 @@
         android:title="@string/opt_configuracion"
         app:showAsAction="never" />
     <item
-        android:id="@+id/opt_cuenta"
-        android:orderInCategory="100"
-        android:title="@string/opt_cuenta"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/opt_acercaDe"
         android:orderInCategory="100"
         android:title="@string/opt_acercaDe"

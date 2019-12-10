@@ -34,102 +34,58 @@ public class RegistroClave extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_clave);
-
-
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         final Net n=new Net(this);
-        btnRegistrar=(Button)findViewById(R.id.btnRegistrar);
+        btnRegistrar = findViewById(R.id.btnRegistrar);
 
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                edClave=(EditText)findViewById(R.id.edClave);
-                edClave2=(EditText)findViewById(R.id.edClave2);
+                edClave = findViewById(R.id.edClave);
+                edClave2 = findViewById(R.id.edClave2);
 
                 if(n.comprobarRed())
                 {
-
-
                     if(edClave.getText().toString().equals(edClave2.getText().toString()))
                     {
-
-
-
                         final String EncPassword=md5(edClave.getText().toString());
-
-
                         Thread tr1=new Thread(){
 
                             @Override
                             public void run() {
-
-
                                 final String respuesta = enviarPost(Usuarios.usuario,EncPassword,Usuarios.pregunta);
-
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-
-
                                         int r = objJSON(respuesta);
-
                                         if (r == 0) {
-
                                             Toast.makeText(getApplicationContext(), "Usuario registrado con exito", Toast.LENGTH_SHORT).show();
-                                            Intent i = new Intent(getApplicationContext(), ContenedorActivity.class);
-
+                                            Intent i = new Intent(getApplicationContext(), MenuUtecGo.class);
                                             startActivity(i);
-
                                             overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
                                         } else {
-
-
-
                                             Toast.makeText(getApplicationContext(), "Usuario no registrado", Toast.LENGTH_SHORT).show();
-
                                         }
-
-
-
                                     }
                                 });
-
-
-
                             }
                         };
                         tr1.start();
-
                     }
                     else
                     {
-                        Toast.makeText(getApplicationContext(), "Los campos no coinciden", Toast.LENGTH_SHORT).show();
-
+                        edClave.setError("Lo campos no coinciden");
+                        edClave.setText("");
+                        edClave.requestFocus();
                     }
-
-
                 }
                 else{
-
-
                     Toast.makeText(RegistroClave.this, "Necesitas conexion a internet", Toast.LENGTH_SHORT).show();
-
-
                 }
-
-
-
-
             }
         });
-
     }
-
-
-
     private static final String md5(final String password) {
         try {
 
@@ -166,7 +122,6 @@ public class RegistroClave extends AppCompatActivity {
             conex=(HttpURLConnection)url.openConnection();
             conex.setRequestMethod("POST");
             conex.setRequestProperty("Content-Length", "" + Integer.toString(parametros.getBytes().length));
-
             conex.setDoOutput(true);
             DataOutputStream wr=new DataOutputStream(conex.getOutputStream());
             wr.writeBytes(parametros);
@@ -178,17 +133,12 @@ public class RegistroClave extends AppCompatActivity {
             {
                 rs+=(sc.nextLine());
             }
-
         }
         catch(Exception ex)
         {
         }
         return rs;
-
-
     }
-
-
 
     public int objJSON(String rspta)
     {
@@ -202,10 +152,5 @@ public class RegistroClave extends AppCompatActivity {
         {
         }
         return rs;
-
     }
-
-
-
-
 }
