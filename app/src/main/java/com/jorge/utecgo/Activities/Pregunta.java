@@ -26,54 +26,32 @@ public class Pregunta extends AppCompatActivity {
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-
-
-        btnSiguiente=(Button)findViewById(R.id.btnSiguiente);
-        edPregunta=(EditText)findViewById(R.id.edPregunta);
+        btnSiguiente= findViewById(R.id.btnSiguiente);
+        edPregunta= findViewById(R.id.edPregunta);
 
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
                 if(edPregunta.getText().toString().length()==0)
                 {
-                    Toast.makeText(getApplicationContext(), "Campo Requerido!!", Toast.LENGTH_SHORT).show();
+                    edPregunta.setError("Campo Requerido");
+                    edPregunta.setText("");
+                    edPregunta.requestFocus();
                 }
                 else if(edPregunta.getText().toString().length()<6)
                 {
-
-                    Toast.makeText(getApplicationContext(), "Ingresa un respuesta de almenos 6 caracteres", Toast.LENGTH_SHORT).show();
+                    edPregunta.setError("Ingresa un respuesta con un minimo de 6 caracteres");
+                    edPregunta.setText("");
+                    edPregunta.requestFocus();
                 }
                 else
                 {
-
-
-
                     Usuarios.pregunta=(edPregunta.getText().toString());
-
                     Intent i = new Intent(getApplicationContext(), RegistroClave.class);
-
                     startActivity(i);
-
                     overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
-
-
                 }
-
-
-
-
-
-
-
-
             }
         });
-
-
-
-
     }
 }
